@@ -1,20 +1,47 @@
 let $ = require('jquery')
 
 /*************** output the list of device names ********************/
-setInterval(function() {
-  var HID = require('./nodehid.js');
-  var devices = HID.devices();
+var cur_device_list = [];
 
+function getHIDdata() {
   var device_list = [];
   var display_names = [];
+
+  var HID = require('./nodehid.js');
+  var devices = HID.devices();
   for (i = 0; i < devices.length; i ++) {
-      if(!device_list.includes(devices[i].serialNumber)) {
-        device_list.push(devices[i].serialNumber);
+      var id = ['serialNumber: ' + devices[i].serialNumber,
+        'vendorID: ' + devices[i].vendorId,
+        'product: ' + devices[i].product];
+      var id_string = id.join(", ");
+      if(!device_list.includes(id_string)) {
+        device_list.push(id_string);
         display_names.push(devices[i].product)
       }
   }
-  $('#output').text(display_names.join(", "))
-}, 200);
+
+  if (!(cur_device_list.length == device_list.length &&
+        cur_device_list.every(function(u, i) {
+        return u === device_list[i];}))) {
+      cur_device_list = device_list;
+      console.log(cur_device_list)
+      $('#output').empty();
+      $('#output').append("<ul></ul>");
+
+      for(var i in display_names) {
+          var li = "<li>";
+          $("ul").append(li.concat(display_names[i]))
+      }
+  }
+}
+
+setInterval(getHIDdata, 400);
+
+// $(document).ready(function(){
+//   $('#devices').click(function(){
+//     $('#output').toggle();
+//   });
+// });
 
 // prototype of the object cointaining device information
 // function device_obj () {
