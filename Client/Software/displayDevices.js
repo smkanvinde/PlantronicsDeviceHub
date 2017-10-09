@@ -40,11 +40,8 @@ function getHIDdata() {
         cur_device_list.every(function(u, i) {
         return u === device_list[i];}))) {
       cur_device_list = device_list;
-      console.log(cur_device_list)
       cur_device_metadata = device_metadata;
-      console.log(cur_device_metadata)
       cur_device_name = display_names;
-      console.log(cur_device_name)
 
       $('#output').empty();
 
@@ -57,8 +54,6 @@ function getHIDdata() {
           $("#output").append(li + (cur_device_name[i]) + li_end)
           $("#output").append(p + (cur_device_metadata[i]) + p_end)
           $('p').hide();
-
-          console.log(cur_device_metadata[i])
       }
       $(document).ready(function(){
         $('li').click(function(){
