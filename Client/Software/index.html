@@ -10,14 +10,23 @@
   <body>
     <h1> Connected Devices </h1>
     <div class id = dispDevices>
-      <!-- <panel id = "devicesBtn"> <h1> Connected Devices </h1> </button> -->
       <h2 id = "output"> </h2>
       <script src = "./displayDevices.js"></script>
     </div>
 
     <div class = "sendButton">
-      <button id = "sendBtn"> Send Device Metadata </button>
-      <script src = "./sendDeviceMetadata.js"></script>
+      <script src="./sendDeviceMetadata.js"></script>
+      <button id = "sendAllBtn"> Send All Metadata to Server </button>
+    </div>
+
+    <div class = "sendPLTButton">
+      <script src="./sendOnlyPlantronics.js"></script>
+      <button id = "sendPLT"> Send Only Plantronics Data </button>
+    </div>
+
+    <div class = "getButton">
+      <button id = "getData"> Print database to console </button>
+      <script src="./getDatafromServer.js"></script>
     </div>
 
   </body>
