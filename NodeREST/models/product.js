@@ -12,8 +12,8 @@ var productSchema = new mongoose.Schema({
     product: String,
     release: Number,
     interface: Number,
-    usagePage: Number,
-    usage: Number
+    usagePage: String,
+    usage: String
 
 });
 
