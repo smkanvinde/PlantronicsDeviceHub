@@ -2,33 +2,27 @@
 <html>
 
   <head>
+  <!--<style >    background-color: #bf5700;    </style>-->
     <meta charset="utf-8">
     <title>Plantronics Device Hub</title>
-    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css" style="background-color: #bf5700">
+
   </head>
 
-  <body>
-    <h1> Connected Devices </h1>
+  <body style="background-color: #bf5700">
+    
+    <h1> <font color = "#ffffff">Connected Devices 
+  </h1>
     <div class id = dispDevices>
-      <h2 id = "output"> </h2>
+      <!-- <panel id = "devicesBtn"> <h1> Connected Devices </h1> </button> -->
+      <h2 style="color:#ffffff;" id = "output"> </h2>
       <script src = "./displayDevices.js"></script>
     </div>
 
     <div class = "sendButton">
-      <script src="./sendDeviceMetadata.js"></script>
-      <button id = "sendAllBtn"> Send All Metadata to Server </button>
+      <button style="color:#000000;" id = "sendBtn"> Send Device Metadata </button>
+      <script src = "./sendDeviceMetadata.js"></script>
     </div>
-
-    <div class = "sendPLTButton">
-      <script src="./sendOnlyPlantronics.js"></script>
-      <button id = "sendPLT"> Send Only Plantronics Data </button>
-    </div>
-
-    <div class = "getButton">
-      <button id = "getData"> Print database to console </button>
-      <script src="./getDatafromServer.js"></script>
-    </div>
-
   </body>
 
 </html>
