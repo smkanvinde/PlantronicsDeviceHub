@@ -3,7 +3,8 @@ $(document).ready(function(){
   $('#sendPLT').click(function(){
     var http = require("http");
     var HID = require('./nodehid.js');
-    var devicesLocal = HID.devices();
+    var devicesLocal = cur_device_metadata;
+
 
     var options = {
       "method": "POST",
