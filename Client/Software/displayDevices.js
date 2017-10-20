@@ -34,10 +34,10 @@ function getHIDdata() {
   var HID = require('./nodehid.js');
   var devices = HID.devices();
   for (i = 0; i < devices.length; i ++) {
-    /* if the metadata is valid, process the data */
-    if(devices[i].interface || devices[i].manufacturer  || devices[i].path  ||
-       devices[i].product  || devices[i].productId  || devices[i].release  ||
-       devices[i].serialNumber || devices[i].usage || devices[i].usagePage || devices[i].vendorId) {
+    /* if the metadata is valid and the device is not internal, process the data */
+    if((devices[i].interface || devices[i].manufacturer  || devices[i].path  ||
+       devices[i].product  || devices[i].productId  || devices[i].release  || devices[i].serialNumber ||
+       devices[i].usage || devices[i].usagePage || devices[i].vendorId) && (devices[i].interface != -1)) {
 
       /* generates the unique device id (Serial, VID, PID) */
       var id = ['serialNumber: ' + devices[i].serialNumber,
