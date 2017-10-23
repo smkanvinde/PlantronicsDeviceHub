@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#sendAllBtn').click(function(){
     var http = require("http");
     var HID = require('./nodehid.js');
-    var devicesLocal = HID.devices();
+    var devicesLocal = cur_device_metadata;
 
     var options = {
       "method": "POST",
@@ -24,8 +24,7 @@ $(document).ready(function(){
           chunks.push(chunk);
         });
 
-
-        res.on("end", function () {
+          res.on("end", function () {
           var body = Buffer.concat(chunks);
           console.log("HTTP return");
           console.log(body.toString());

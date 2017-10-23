@@ -24,6 +24,8 @@ function createWindow(){
   })
 }//end createwindow
 
+require('./menu/mainmenu')
+
 //run create window function
 app.on('ready', createWindow);
 
@@ -32,4 +34,6 @@ app.on('windows-all-closed', () => {
   if(process.platform !== 'darwin'){
     app.quit();
   }
+  
+
 })
