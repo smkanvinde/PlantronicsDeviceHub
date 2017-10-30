@@ -48,18 +48,19 @@ function getHIDdata() {
       /* checks to see if the device metadata corresponds to a new or existing device */
       if(!device_id.includes(id_string)) {
         /* a new device not in our display list was detected, add it to the display list */
+        devices[i].userId = "Username"; // add username to the metadata
         device_id.push(id_string);
         display_names.push(devices[i].product)
         device_metadata.push(devices[i]);
       } else {
         /* the device is in the display list, so add the additional usage and usage page*/
         var idx = device_id.indexOf(id_string);
+        device_metadata[idx].path = device_metadata[idx].path + ', ' + devices[i].path;
         device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
         device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
       }
     }
   }
-
 
   /* update the display and send device metadata, if the device list has changed*/
   if (!(cur_device_id.length == device_id.length &&
@@ -79,10 +80,6 @@ function getHIDdata() {
           client_device_id.push(cur_device_id[i]); // add it to client device list
           client_device_metadata.push(cur_device_metadata[i]); // save the device metadata
           sendData(JSON.stringify(cur_device_metadata[i])); // send data to server for server registration
-
-          // console.log(cur_device_metadata[i]);
-          console.log(JSON.stringify(cur_device_metadata[i]));
-          // console.log(client_device_metadata); // show the client device metadata for debugging
         }
       }
 
