@@ -1,7 +1,8 @@
 let $ = require('jquery');
 var http = require("http");
 
-var username = "Jason"; // contains the current user logged in
+var username = "Jason@Plantronics.com"; // contains the current user logged in
+var password = "passord123";
 
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
