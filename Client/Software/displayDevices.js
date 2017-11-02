@@ -1,5 +1,7 @@
-let $ = require('jquery')
+let $ = require('jquery');
 var http = require("http");
+
+var username = "Jason"; // contains the current user logged in
 
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
@@ -8,23 +10,92 @@ var cur_device_id = []; // holds the current unique device id list of connect de
 var cur_device_name = []; // holds the device names that are currently displayed
 var cur_device_metadata = []; // holds the device metadata that is currently displayed
 
+var DB_devices = []; // holds all devices in the database
+
 /* creates the metadata string that will be displayed on the UI */
 function metadata_str (device) {
   return (
-    'interface: ' + device.interface + "<br \>" +
-    'manufacturer: ' + device.manufacturer + "<br \>" +
-    'path: ' + device.path + "<br \>" +
-    'product: ' + device.product + "<br \>" +
-    'productId: ' + device.productId + "<br \>" +
-    'release: ' + device.release + "<br \>" +
-    'serialNumber: ' + device.serialNumber + "<br \>" +
-    'usage: ' + device.usage + "<br \>" +
-    'usagePage: ' + device.usagePage + "<br \>" +
-    'vendorId: ' + device.vendorId + "<br>"
+    "<li class='list-group-item'>" + 'interface: ' + device.interface + "</li>" +
+    "<li class='list-group-item'>" + 'manufacturer: ' + device.manufacturer + "</li>" +
+    "<li class='list-group-item'>" + 'path: ' + device.path + "</li>" +
+    "<li class='list-group-item'>" + 'product: ' + device.product + "</li>" +
+    "<li class='list-group-item'>" + 'productId: ' + device.productId + "</li>" +
+    "<li class='list-group-item'>" + 'release: ' + device.release + "</li>" +
+    "<li class='list-group-item'>" + 'serialNumber: ' + device.serialNumber + "</li>" +
+    "<li class='list-group-item'>" + 'usage: ' + device.usage + "</li>" +
+    "<li class='list-group-item'>" + 'usagePage: ' + device.usagePage + "</li>" +
+    "<li class='list-group-item'>" + 'vendorId: ' + device.vendorId + "</li>"
     );
 }
 
-/* acquires and process the HID data for display and client and server registration */
+/***************************** HTTP functions *********************************/
+function sendData(data) {
+  var options = {
+    "method": "POST",
+    "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
+    "port": "3000",
+    "path": "/api/products",
+    "headers": {
+      "content-type": "application/json",
+      "cache-control": "no-cache"
+    }
+  };
+
+  var req = http.request(options, function (res) {
+    var chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function () {
+      var body = Buffer.concat(chunks);
+      console.log("HTTP return");
+      console.log(body.toString());
+    });
+  });
+
+  req.write(JSON.stringify(data));
+  req.end();
+}
+
+function getData() {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products", false ); // false for synchronous request
+  xmlHttp.send( null );
+  DB_devices = JSON.parse(xmlHttp.responseText);
+}
+
+/* updates the client device metadata if any changes were made in MongoDB */
+function updateClientMetadata() {
+  /* parse through each device in the database */
+  getData(); // get all the devices in the database
+  for(i = 0; i < DB_devices.length; i++) {
+   /* if the devices belongs to the user, add it to the client devices */
+   if(DB_devices[i].userId == username) {
+     /* generates the unique device id (Serial, VID, PID) */
+     var id = ['serialNumber: ' + DB_devices[i].serialNumber,
+               'vendorID: ' + DB_devices[i].vendorId,
+               'product: ' + DB_devices[i].productId];
+     var id_string = id.join(", ");
+     device_idx = client_device_id.indexOf(id_string);
+
+     if(device_idx == -1) {
+       /* device in the database isn't in the client database, add it */
+       client_device_id.push(id_string);
+       client_device_metadata.push(DB_devices[i]);
+     } else {
+       /* update client device metadata */
+       client_device_metadata[device_idx] = DB_devices[i];
+     }
+   }
+  }
+}
+
+/******************** initalize the client devices based on username ******************/
+updateClientMetadata();
+
+/**** acquires and process the HID data for display and client/server registration ****/
 function getHIDdata() {
   var device_id = []; // contains the unique device id of each deivce (Serial, VID, PID)
   var display_names = []; // contains the name of the devices that will be displayed
@@ -48,18 +119,20 @@ function getHIDdata() {
       /* checks to see if the device metadata corresponds to a new or existing device */
       if(!device_id.includes(id_string)) {
         /* a new device not in our display list was detected, add it to the display list */
+        devices[i].userId = username; // add username to the metadata
+        devices[i].path = '<br/>\u{2022} ' + devices[i].path + '<br/>'
         device_id.push(id_string);
         display_names.push(devices[i].product)
         device_metadata.push(devices[i]);
       } else {
         /* the device is in the display list, so add the additional usage and usage page*/
         var idx = device_id.indexOf(id_string);
+        device_metadata[idx].path = device_metadata[idx].path + '<br/>\u{2022} ' + devices[i].path + '<br/>';
         device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
         device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
       }
     }
   }
-
 
   /* update the display and send device metadata, if the device list has changed*/
   if (!(cur_device_id.length == device_id.length &&
@@ -78,28 +151,22 @@ function getHIDdata() {
           /* the device is not currently in the client list, so add and register it */
           client_device_id.push(cur_device_id[i]); // add it to client device list
           client_device_metadata.push(cur_device_metadata[i]); // save the device metadata
-          sendData(JSON.stringify(cur_device_metadata[i])); // send data to server for server registration
-
-          // console.log(cur_device_metadata[i]);
-          console.log(JSON.stringify(cur_device_metadata[i]));
-          // console.log(client_device_metadata); // show the client device metadata for debugging
+          sendData(cur_device_metadata[i]); // send data to server for server registration
         }
       }
-
-      // console.log(devices); // show all metadata for debugging
 
       /* refresh the display */
       $('#output').empty();
       for(var i in cur_device_name) {
-          $("#output").append("<li>" + (cur_device_name[i]) + "</li>")
-          $("#output").append("<p>" + (metadata_str(cur_device_metadata[i])) + "</p>")
-          $('p').hide();
+          $("#output").append("<ul class='panel panel-default'>" + (cur_device_name[i]))
+          $("#output").append("<div class = 'panel-body'>" + (metadata_str(cur_device_metadata[i])) + "<div>" + "</ul>")
       }
+      $('ul').next('div').hide();
 
       /* function to toggle the device metadata when the product name is clicked*/
       $(document).ready(function(){
-        $('li').click(function(){
-          $(this).next('p').toggle();
+        $('ul').click(function(){
+          $(this).next('div').toggle();
         });
       });
   }
@@ -108,32 +175,5 @@ function getHIDdata() {
 /* keep checking for devices every x ms */
 setInterval(getHIDdata, 200);
 
-function sendData(data) {
-  var options = {
-    "method": "POST",
-    "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
-    "port": "3000",
-    "path": "/api/products",
-    "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
-    }
-  };
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log("HTTP return");
-    console.log(body.toString());
-  });
-});
-
-req.write(data);
-req.end();
-}
+/* keep checking for updates every x ms */
+setInterval(getHIDdata, 60000);

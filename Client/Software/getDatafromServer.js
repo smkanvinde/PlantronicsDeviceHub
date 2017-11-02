@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('#getData').click(function(){
     var http = require("http");
 
+
     var options = {
       "method": "GET",
       "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
@@ -22,7 +23,14 @@ $(document).ready(function(){
 
       res.on("end", function () {
         var body = Buffer.concat(chunks);
-        console.log(body.toString());
+        var stringToJson = JSON.parse(body);
+        console.log(stringToJson);
+
+        for(i = 0; i < stringToJson.length; i++){
+          console.log(stringToJson[i]._id);
+        }
+
+
       });
     });
 
