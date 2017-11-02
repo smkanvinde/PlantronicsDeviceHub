@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api', require('./routes/api'));
+app.use('/userApi', require('./routes/userApi'));
 
 // Start server
 app.listen(3000);
