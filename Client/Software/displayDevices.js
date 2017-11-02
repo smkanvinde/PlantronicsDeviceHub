@@ -1,5 +1,6 @@
-let $ = require('jquery')
+let $ = require('jquery');
 var http = require("http");
+// require('bootstrap');
 
 var username = "Jason"; // contains the current user logged in
 
@@ -15,16 +16,26 @@ var DB_devices = []; // holds all devices in the database
 /* creates the metadata string that will be displayed on the UI */
 function metadata_str (device) {
   return (
-    'interface: ' + device.interface + "<br \>" +
-    'manufacturer: ' + device.manufacturer + "<br \>" +
-    'path: ' + device.path + "<br \>" +
-    'product: ' + device.product + "<br \>" +
-    'productId: ' + device.productId + "<br \>" +
-    'release: ' + device.release + "<br \>" +
-    'serialNumber: ' + device.serialNumber + "<br \>" +
-    'usage: ' + device.usage + "<br \>" +
-    'usagePage: ' + device.usagePage + "<br \>" +
-    'vendorId: ' + device.vendorId + "<br>"
+    "<li class='list-group-item'>" +
+    'interface: ' + device.interface + "</li>" +
+    "<li class='list-group-item'>" +
+    'manufacturer: ' + device.manufacturer + "</li>" +
+    "<li class='list-group-item'>" +
+    'path: ' + device.path + "</li>" +
+    "<li class='list-group-item'>" +
+    'product: ' + device.product + "</li>" +
+    "<li class='list-group-item'>" +
+    'productId: ' + device.productId + "</li>" +
+    "<li class='list-group-item'>" +
+    'release: ' + device.release + "</li>" +
+    "<li class='list-group-item'>" +
+    'serialNumber: ' + device.serialNumber + "</li>" +
+    "<li class='list-group-item'>" +
+    'usage: ' + device.usage + "</li>" +
+    "<li class='list-group-item'>" +
+    'usagePage: ' + device.usagePage + "</li>" +
+    "<li class='list-group-item'>" +
+    'vendorId: ' + device.vendorId + "</li>"
     );
 }
 
@@ -120,7 +131,7 @@ function getHIDdata() {
       } else {
         /* the device is in the display list, so add the additional usage and usage page*/
         var idx = device_id.indexOf(id_string);
-        device_metadata[idx].path = device_metadata[idx].path + ', ' + devices[i].path;
+        device_metadata[idx].path = device_metadata[idx].path + ',<br/> ' + devices[i].path;
         device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
         device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
       }
@@ -150,16 +161,17 @@ function getHIDdata() {
 
       /* refresh the display */
       $('#output').empty();
+      // $("output").append("<div>");
       for(var i in cur_device_name) {
-          $("#output").append("<li>" + (cur_device_name[i]) + "</li>")
-          $("#output").append("<p>" + (metadata_str(cur_device_metadata[i])) + "</p>")
-          $('p').hide();
+          $("#output").append("<ul class='panel panel-default'>" + (cur_device_name[i]))
+          $("#output").append("<div class = 'panel-body'>" + (metadata_str(cur_device_metadata[i])) + "<div>" + "</ul>")
       }
+      $('ul').next('div').hide();
 
       /* function to toggle the device metadata when the product name is clicked*/
       $(document).ready(function(){
-        $('li').click(function(){
-          $(this).next('p').toggle();
+        $('ul').click(function(){
+          $(this).next('div').toggle();
         });
       });
   }
