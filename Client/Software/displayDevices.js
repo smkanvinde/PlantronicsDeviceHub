@@ -1,12 +1,16 @@
 let $ = require('jquery')
 var http = require("http");
 
+var username = "Jason"; // contains the current user logged in
+
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
 
 var cur_device_id = []; // holds the current unique device id list of connect devices being displayed
 var cur_device_name = []; // holds the device names that are currently displayed
 var cur_device_metadata = []; // holds the device metadata that is currently displayed
+
+var DB_devices = []; // holds all devices in the database
 
 /* creates the metadata string that will be displayed on the UI */
 function metadata_str (device) {
@@ -24,7 +28,68 @@ function metadata_str (device) {
     );
 }
 
-/* acquires and process the HID data for display and client and server registration */
+/***************************** HTTP functions *********************************/
+function sendData(data) {
+  var options = {
+    "method": "POST",
+    "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
+    "port": "3000",
+    "path": "/api/products",
+    "headers": {
+      "content-type": "application/json",
+      "cache-control": "no-cache"
+    }
+  };
+
+  var req = http.request(options, function (res) {
+    var chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function () {
+      var body = Buffer.concat(chunks);
+      console.log("HTTP return");
+      console.log(body.toString());
+    });
+  });
+
+  req.write(JSON.stringify(data));
+  req.end();
+}
+
+function getData() {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products", false ); // false for synchronous request
+  xmlHttp.send( null );
+  DB_devices = JSON.parse(xmlHttp.responseText);
+}
+
+
+/******************** initalize the client devices based on username ******************/
+getData();
+
+/* parse through each device in the database */
+for(i = 0; i < DB_devices.length; i++) {
+ /* if the devices belongs to the user, add it to the client devices */
+ if(DB_devices[i].userId == username) {
+   /* generates the unique device id (Serial, VID, PID) */
+   var id = ['serialNumber: ' + DB_devices[i].serialNumber,
+             'vendorID: ' + DB_devices[i].vendorId,
+             'product: ' + DB_devices[i].productId];
+   var id_string = id.join(", ");
+
+   if(!client_device_id.includes(id_string)) {
+     client_device_id.push(id_string);
+     client_device_metadata.push(DB_devices[i]);
+   }
+ }
+}
+
+
+
+/**** acquires and process the HID data for display and client and server registration ****/
 function getHIDdata() {
   var device_id = []; // contains the unique device id of each deivce (Serial, VID, PID)
   var display_names = []; // contains the name of the devices that will be displayed
@@ -48,7 +113,7 @@ function getHIDdata() {
       /* checks to see if the device metadata corresponds to a new or existing device */
       if(!device_id.includes(id_string)) {
         /* a new device not in our display list was detected, add it to the display list */
-        devices[i].userId = "Username"; // add username to the metadata
+        devices[i].userId = username; // add username to the metadata
         device_id.push(id_string);
         display_names.push(devices[i].product)
         device_metadata.push(devices[i]);
@@ -79,11 +144,9 @@ function getHIDdata() {
           /* the device is not currently in the client list, so add and register it */
           client_device_id.push(cur_device_id[i]); // add it to client device list
           client_device_metadata.push(cur_device_metadata[i]); // save the device metadata
-          sendData(JSON.stringify(cur_device_metadata[i])); // send data to server for server registration
+          sendData(cur_device_metadata[i]); // send data to server for server registration
         }
       }
-
-      // console.log(devices); // show all metadata for debugging
 
       /* refresh the display */
       $('#output').empty();
@@ -104,33 +167,3 @@ function getHIDdata() {
 
 /* keep checking for devices every x ms */
 setInterval(getHIDdata, 200);
-
-function sendData(data) {
-  var options = {
-    "method": "POST",
-    "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
-    "port": "3000",
-    "path": "/api/products",
-    "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
-    }
-  };
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log("HTTP return");
-    console.log(body.toString());
-  });
-});
-
-req.write(data);
-req.end();
-}
