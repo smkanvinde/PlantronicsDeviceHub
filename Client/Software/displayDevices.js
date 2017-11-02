@@ -2,7 +2,7 @@ let $ = require('jquery');
 var http = require("http");
 
 var username = "Jason@Plantronics.com"; // contains the current user logged in
-var password = "passord123";
+var password = "password123"; // contains the current password for the user logged in
 
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
@@ -18,7 +18,7 @@ function metadata_str (device) {
   return (
     "<li class='list-group-item'>" + 'interface: ' + device.interface + "</li>" +
     "<li class='list-group-item'>" + 'manufacturer: ' + device.manufacturer + "</li>" +
-    "<li class='list-group-item'>" + 'path: ' + device.path + "</li>" +
+    "<li class='list-group-item'>" + 'path: ' + "<br/>\u{2022} " + device.path.replace(/, /g, '<br/>\u{2022} ') + "<br/></li>" +
     "<li class='list-group-item'>" + 'product: ' + device.product + "</li>" +
     "<li class='list-group-item'>" + 'productId: ' + device.productId + "</li>" +
     "<li class='list-group-item'>" + 'release: ' + device.release + "</li>" +
@@ -28,6 +28,8 @@ function metadata_str (device) {
     "<li class='list-group-item'>" + 'vendorId: ' + device.vendorId + "</li>"
     );
 }
+
+//'<br/>\u{2022} '
 
 /***************************** HTTP functions *********************************/
 function sendData(data) {
@@ -121,14 +123,13 @@ function getHIDdata() {
       if(!device_id.includes(id_string)) {
         /* a new device not in our display list was detected, add it to the display list */
         devices[i].userId = username; // add username to the metadata
-        devices[i].path = '<br/>\u{2022} ' + devices[i].path + '<br/>'
         device_id.push(id_string);
         display_names.push(devices[i].product)
         device_metadata.push(devices[i]);
       } else {
         /* the device is in the display list, so add the additional usage and usage page*/
         var idx = device_id.indexOf(id_string);
-        device_metadata[idx].path = device_metadata[idx].path + '<br/>\u{2022} ' + devices[i].path + '<br/>';
+        device_metadata[idx].path = device_metadata[idx].path + ', ' + devices[i].path;
         device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
         device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
       }
