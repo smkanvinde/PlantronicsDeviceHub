@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8">
     <title>Plantronics Device Hub</title>
-    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css" style="background-color: #bf5700">
   </head>
 
   <body style="background-color: #bf5700">
@@ -13,6 +12,7 @@
     <div class id = dispDevices>
       <h2 style="color:#000000;" id = "output"> </h2>
       <script src = "./displayDevices.js"></script>
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     </div>
 
     <div class = "sendButton">
@@ -39,6 +39,10 @@
       <button style="color:#000000;" id = "registerUserData"> Register current user to db </button>
       <script src="./registerCurrentUser.js"></script>
     </div>
+
+    <form action="login2.html">
+      <input type="submit" value="Log Out" />
+    </form>
 
   </body>
 

@@ -11,8 +11,8 @@ function createWindow(){
 
   //Load index.html
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    // pathname: path.join(__dirname, 'login2.html'),
+    pathname: path.join(__dirname, 'login2.html'),
+    // pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -25,8 +25,6 @@ function createWindow(){
   })
 }//end createwindow
 
-require('./menu/mainmenu')
-
 //run create window function
 app.on('ready', createWindow);
 
@@ -35,6 +33,4 @@ app.on('windows-all-closed', () => {
   if(process.platform !== 'darwin'){
     app.quit();
   }
-
-
 })
