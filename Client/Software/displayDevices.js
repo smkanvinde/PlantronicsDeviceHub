@@ -1,8 +1,8 @@
-let $ = require('jquery');
 var http = require("http");
+let $ = require('jquery');
 
-var username = "Jason@Plantronics.com"; // contains the current user logged in
-var password = "password123"; // contains the current password for the user logged in
+var username = global.localStorage.getItem("new_username"); // contains the current user logged in
+var password = global.localStorage.getItem("new_password"); // contains the current password for the user logged in
 
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
@@ -109,9 +109,9 @@ function getHIDdata() {
   var devices = HID.devices();
   for (i = 0; i < devices.length; i ++) {
     /* if the metadata is valid and the device is not internal, process the data */
-    if((devices[i].interface || devices[i].manufacturer  || devices[i].path  ||
-       devices[i].product  || devices[i].productId  || devices[i].release  || devices[i].serialNumber ||
-       devices[i].usage || devices[i].usagePage || devices[i].vendorId) && (devices[i].interface != -1)) {
+    // if((devices[i].interface || devices[i].manufacturer  || devices[i].path  ||
+    //    devices[i].product  || devices[i].productId  || devices[i].release  || devices[i].serialNumber ||
+    //    devices[i].usage || devices[i].usagePage || devices[i].vendorId) && (devices[i].interface != -1)) {
 
       /* generates the unique device id (Serial, VID, PID) */
       var id = ['serialNumber: ' + devices[i].serialNumber,
@@ -132,7 +132,7 @@ function getHIDdata() {
         device_metadata[idx].path = device_metadata[idx].path + ', ' + devices[i].path;
         device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
         device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
-      }
+      // }
     }
   }
 

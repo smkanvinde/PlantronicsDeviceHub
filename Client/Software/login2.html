@@ -126,14 +126,16 @@ span.psw {
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
+<script>
+  /* saves the username and password that were inputed for index.html to use */
+  var global;
+  function registerUser() {
+    global.localStorage.setItem("new_username", document.getElementById('username_input').value);
+    global.localStorage.setItem("new_password", document.getElementById('password_input').value);
+  }
+</script>
+
 <div id="id01" class="modal">
-  <script>
-    function linkPage() {
-
-    }
-  </script>
-
-  <!-- <form class="modal-content animate" action="/action_page.php"> -->
   <form class="modal-content animate" action = "index.html">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -142,12 +144,12 @@ span.psw {
 
     <div class="container">
       <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" name="uname" id='username_input' required>
 
       <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
 
-      <button type="submit">Login</button>
+      <button type="submit" onClick = "registerUser()">Login</button>
       <!--<input type="checkbox" checked="checked"> Remember me-->
     </div>
 
