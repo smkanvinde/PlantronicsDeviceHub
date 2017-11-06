@@ -124,19 +124,19 @@ span.psw {
 
   <script>
     /* saves the username and password that were inputed for index.html to use */
-    var http = require("http");
+     var http = require("http");
     var new_username;
     var new_password;
     var DB_devices = []; // holds all devices in the database
     var global;
-
+    var check = 0;
     // global.localStorage.setItem("new_username", document.getElementById('username_input').value);
     // global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
 
 
     function verifyUser() {
-
+      check =2;
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
@@ -162,7 +162,7 @@ span.psw {
     }
 
     function registerUser(){
-
+      check =1;
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
@@ -213,10 +213,19 @@ span.psw {
 
     }
 
+    function valid(){
+      if(check ===2){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
 
   </script>
 
-<form action="index.html">
+<form onsubmit="return valid()" action = "index.html" >
   <div class="imgcontainer">
     <img src="Plantronics.png" alt="Avatar" class="avatar">
   </div>
