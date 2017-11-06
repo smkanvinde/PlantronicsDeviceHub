@@ -3,11 +3,11 @@ $(document).ready(function(){
 
     console.log('inside the add user script');
     var http = require("http");
-    var currentUser = username;
-    var currentUserPassword = password;
+    var currentUser = global.localStorage.getItem("new_username");;
+    var currentUserPassword = global.localStorage.getItem("new_password");
 
-    // console.log(currentUser);
-    // console.log(currentUserPassword);
+    console.log(currentUser);
+    console.log(currentUserPassword);
 
 var options = {
   "method": "POST",

@@ -4,6 +4,7 @@ let $ = require('jquery');
 var username = global.localStorage.getItem("new_username"); // contains the current user logged in
 var password = global.localStorage.getItem("new_password"); // contains the current password for the user logged in
 
+console.log(username);
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
 

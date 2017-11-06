@@ -130,14 +130,15 @@ span.psw {
     var DB_devices = []; // holds all devices in the database
     var global;
 
-    global.localStorage.setItem("new_username", document.getElementById('username_input').value);
-    global.localStorage.setItem("new_password", document.getElementById('password_input').value);
+    // global.localStorage.setItem("new_username", document.getElementById('username_input').value);
+    // global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
 
 
     function verifyUser() {
-      // new_username = document.getElementById('username_input').value;
-      // new_password = document.getElementById('password_input').value;
+
+      global.localStorage.setItem("new_username", document.getElementById('username_input').value);
+      global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
       //grab all the userdata
       var xmlHttp = new XMLHttpRequest();
@@ -146,7 +147,7 @@ span.psw {
       DB_userData = JSON.parse(xmlHttp.responseText);
       console.log(DB_userData);
 
-      for(i = 0; i < DB_userData.length){
+      for(i = 0; i < DB_userData.length; i++){
 
         if(DB_userData[i].userId == new_username){
           //user is in database, verify password
@@ -159,6 +160,60 @@ span.psw {
       }
 
     }
+
+    function registerUser(){
+
+      global.localStorage.setItem("new_username", document.getElementById('username_input').value);
+      global.localStorage.setItem("new_password", document.getElementById('password_input').value);
+
+      //verify that username is available
+      //grab all the userdata
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/userapi/users/", false ); // false for synchronous request
+      xmlHttp.send( null );
+      DB_userData = JSON.parse(xmlHttp.responseText);
+      console.log(DB_userData);
+
+      for(j = 0; j < DB_userData.length; j++){
+        if(DB_userData[j].userId == new_username){
+          //print to ui that this username is not available
+          console.log("this username: " + new_username + " is not available!");
+        }else{
+          //register device
+          var options = {
+            "method": "POST",
+            "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
+            "port": "3000",
+            "path": "/userapi/users/",
+            "headers": {
+              "content-type": "application/json",
+              "cache-control": "no-cache",
+            }
+          };
+
+          var req = http.request(options, function (res) {
+            var chunks = [];
+
+            res.on("data", function (chunk) {
+              chunks.push(chunk);
+            });
+
+            res.on("end", function () {
+              var body = Buffer.concat(chunks);
+              console.log("Success Registering User:");
+              console.log(body.toString());
+            });
+          });
+
+          req.write(JSON.stringify({ userID: new_username, password: new_password }));
+          req.end();
+        }
+
+      }
+
+    }
+
+
   </script>
 
 <form action="index.html">
