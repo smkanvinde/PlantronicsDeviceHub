@@ -4,8 +4,10 @@ var mongoose = restful.mongoose;
 
 // Schema
 var productSchema = new mongoose.Schema({
-    vendorID: Number,
-    productID: Number,
+    vendorId: Number,
+    productId: Number,
+    userId: String,
+    userCompany: String,
     path: String,
     serialNumber: String,
     manufacturer: String,
@@ -13,7 +15,10 @@ var productSchema = new mongoose.Schema({
     release: Number,
     interface: Number,
     usagePage: String,
-    usage: String
+    usage: String,
+    generic1: String,
+    generic2: String,
+    generic3: Number
 
 });
 
