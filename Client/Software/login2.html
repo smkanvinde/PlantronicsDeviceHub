@@ -136,6 +136,9 @@ span.psw {
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
+      new_username = global.localStorage.getItem("new_username");
+      new_password = global.localStorage.getItem("new_password");
+
       //grab all the userdata
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/userapi/users/", false ); // false for synchronous request
@@ -148,7 +151,6 @@ span.psw {
         if(DB_userData[i].userID == new_username){
           //user is in database, verify password
           check = 2;
-
           if(DB_userData[i].userID == new_password){ // <-- fix this
             //exit dialog and move ot UI
             check = 2;
@@ -193,11 +195,10 @@ span.psw {
           //username is not available
             usernameAvailable = false;
             break;
-        }else{
+        } else{
           //set registration flag
           usernameAvailable = true;
         }
-
       }
       //register device
       if(usernameAvailable == true){
