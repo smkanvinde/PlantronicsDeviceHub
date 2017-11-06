@@ -163,8 +163,15 @@ span.psw {
 
     function registerUser(){
       check =1;
+      var usernameAvailable = false;
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
+
+      new_username = global.localStorage.getItem("new_username");
+      new_password = global.localStorage.getItem("new_password");
+
+      console.log(new_username);
+      console.log(new_password);
 
       //verify that username is available
       //grab all the userdata
@@ -175,43 +182,58 @@ span.psw {
       console.log(DB_userData);
 
       for(j = 0; j < DB_userData.length; j++){
-        if(DB_userData[j].userId == new_username){
-          //print to ui that this username is not available
-          console.log("this username: " + new_username + " is not available!");
+        console.log(DB_userData[j].userID);
+        if(DB_userData[j].userID == new_username){
+          //username is not available
+            usernameAvailable = false;
         }else{
-          //register device
-          var options = {
-            "method": "POST",
-            "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
-            "port": "3000",
-            "path": "/userapi/users/",
-            "headers": {
-              "content-type": "application/json",
-              "cache-control": "no-cache",
-            }
-          };
-
-          var req = http.request(options, function (res) {
-            var chunks = [];
-
-            res.on("data", function (chunk) {
-              chunks.push(chunk);
-            });
-
-            res.on("end", function () {
-              var body = Buffer.concat(chunks);
-              console.log("Success Registering User:");
-              console.log(body.toString());
-            });
-          });
-
-          req.write(JSON.stringify({ userID: new_username, password: new_password }));
-          req.end();
+          //set registration flag
+          usernameAvailable = true;
         }
 
       }
+      //register device
+      if(notReg = true){
+        registerSend(new_username, new_password);
+          check = 2;
+      }else {
+        console.log("this username: " + new_username + " is not available!");
+      }
 
     }
+
+    function registerSend(uname, pword){
+      var http = require("http");
+      console.log("register device");
+      var options = {
+        "method": "POST",
+        "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
+        "port": "3000",
+        "path": "/userapi/users/",
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+        }
+      };
+
+      var req = http.request(options, function (res) {
+        var chunks = [];
+
+        res.on("data", function (chunk) {
+          chunks.push(chunk);
+        });
+
+        res.on("end", function () {
+          var body = Buffer.concat(chunks);
+          console.log("Success Registering User:");
+          console.log(body.toString());
+        });
+      });
+
+      req.write(JSON.stringify({ userID: uname, password: pword }));
+      req.end();
+    }
+
 
     function valid(){
       if(check ===2){
