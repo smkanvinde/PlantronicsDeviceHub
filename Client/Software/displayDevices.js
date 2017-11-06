@@ -2,9 +2,7 @@ var http = require("http");
 let $ = require('jquery');
 
 var username = global.localStorage.getItem("new_username"); // contains the current user logged in
-var password = global.localStorage.getItem("new_password"); // contains the current password for the user logged in
 
-console.log(username);
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
 
@@ -30,9 +28,6 @@ function metadata_str (device) {
     );
 }
 
-//'<br/>\u{2022} '
-
-/***************************** HTTP functions *********************************/
 function sendData(data) {
   var options = {
     "method": "POST",
@@ -63,100 +58,120 @@ function sendData(data) {
   req.end();
 }
 
-function getData() {
+function getDBData() {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products", false ); // false for synchronous request
   xmlHttp.send( null );
   DB_devices = JSON.parse(xmlHttp.responseText);
 }
 
-/* updates the client device metadata if any changes were made in MongoDB */
-function updateClientMetadata() {
-  /* parse through each device in the database */
-  getData(); // get all the devices in the database
-  for(i = 0; i < DB_devices.length; i++) {
-   /* if the devices belongs to the user, add it to the client devices */
-   if(DB_devices[i].userId == username) {
-     /* generates the unique device id (Serial, VID, PID) */
-     var id = ['serialNumber: ' + DB_devices[i].serialNumber,
-               'vendorID: ' + DB_devices[i].vendorId,
-               'product: ' + DB_devices[i].productId];
-     var id_string = id.join(", ");
-     device_idx = client_device_id.indexOf(id_string);
-
-     if(device_idx == -1) {
-       /* device in the database isn't in the client database, add it */
-       client_device_id.push(id_string);
-       client_device_metadata.push(DB_devices[i]);
-     } else {
-       /* update client device metadata */
-       client_device_metadata[device_idx] = DB_devices[i];
-     }
-   }
-  }
+function getSpecifcData(id) {
+  var xmlHttp = new XMLHttpRequest();
+  var link = "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products" + "/" + id;
+  xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products", false ); // false for synchronous request
+  xmlHttp.send( null );
+  return JSON.parse(xmlHttp.responseText);
 }
 
-/******************** initalize the client devices based on username ******************/
-updateClientMetadata();
+function updateSpecifcData() {
+
+}
+
+/* initializes the client device metadata with the data in MongoDB */
+function initClientMetadata() {
+  /* parse through each device in the database */
+  getDBData(); // get all the devices in the database
+  for(i = 0; i < DB_devices.length; i++) {
+     /* if the devices belongs to the user, add it to the client devices */
+     if(DB_devices[i].userId == username) {
+       /* generates the unique device id (Serial, VID, PID) */
+       var id = ['serialNumber: ' + DB_devices[i].serialNumber,
+                 'vendorID: ' + DB_devices[i].vendorId,
+                 'product: ' + DB_devices[i].productId];
+       var id_string = id.join(", ");
+       device_idx = client_device_id.indexOf(id_string);
+
+       if(device_idx == -1) {
+         /* device in the database isn't in the client database, add it */
+         client_device_id.push(id_string);
+         client_device_metadata.push(DB_devices[i]);
+       }
+     }
+   }
+
+   /* keep checking for devices every x ms */
+   setInterval(getHIDdata, 200);
+
+   /* keep checking for updates every x ms */
+   setInterval(updateClientMetadata, 1000);
+}
+
+/* updates client device metadata if any changes were made in MongoDB */
+function updateClientMetadata() {
+  /* assumes server has the most recent information */
+  for(i = 0; i < client_device_metadata.length; i++) {
+    var id = ['serialNumber: ' + client_device_metadata[i].serialNumber,
+              'vendorID: ' + client_device_metadata[i].vendorId,
+              'product: ' + client_device_metadata[i].productId];
+    var id_string = id.join(", ");
+  }
+}
 
 /**** acquires and process the HID data for display and client/server registration ****/
 function getHIDdata() {
   var device_id = []; // contains the unique device id of each deivce (Serial, VID, PID)
-  var display_names = []; // contains the name of the devices that will be displayed
   var device_metadata = []; // contains all the metadata for each unique device
-
-  /* acquires the device metadata, and parses it to find each unique device that is currently connected. */
   var HID = require('./nodehid.js');
   var devices = HID.devices();
+
+  /* acquires the device metadata, and parses it to find each unique device that is currently connected. */
   for (i = 0; i < devices.length; i ++) {
-    /* if the metadata is valid and the device is not internal, process the data */
-    // if((devices[i].interface || devices[i].manufacturer  || devices[i].path  ||
-    //    devices[i].product  || devices[i].productId  || devices[i].release  || devices[i].serialNumber ||
-    //    devices[i].usage || devices[i].usagePage || devices[i].vendorId) && (devices[i].interface != -1)) {
+    /* generates the unique device id (Serial, VID, PID) */
+    var id = ['serialNumber: ' + devices[i].serialNumber,
+              'vendorID: ' + devices[i].vendorId,
+              'product: ' + devices[i].productId];
+    var id_string = id.join(", ");
 
-      /* generates the unique device id (Serial, VID, PID) */
-      var id = ['serialNumber: ' + devices[i].serialNumber,
-                'vendorID: ' + devices[i].vendorId,
-                'product: ' + devices[i].productId];
-      var id_string = id.join(", ");
-
-      /* checks to see if the device metadata corresponds to a new or existing device */
-      if(!device_id.includes(id_string)) {
-        /* a new device not in our display list was detected, add it to the display list */
-        devices[i].userId = username; // add username to the metadata
-        device_id.push(id_string);
-        display_names.push(devices[i].product)
-        device_metadata.push(devices[i]);
-      } else {
-        /* the device is in the display list, so add the additional usage and usage page*/
-        var idx = device_id.indexOf(id_string);
-        device_metadata[idx].path = device_metadata[idx].path + ', ' + devices[i].path;
-        device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
-        device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
-      // }
+    /* checks to see if the device metadata corresponds to a new or existing device */
+    if(!device_id.includes(id_string)) {
+      /* a new device not in our display list was detected, add it to the display list */
+      devices[i].userId = username; // add username to the metadata
+      device_id.push(id_string);
+      device_metadata.push(devices[i]);
+    } else {
+      /* the device is in the display list, so add the additional usage and usage page*/
+      var idx = device_id.indexOf(id_string);
+      device_metadata[idx].path = device_metadata[idx].path + ', ' + devices[i].path;
+      device_metadata[idx].usage = device_metadata[idx].usage + ', ' + devices[i].usage;
+      device_metadata[idx].usagePage = device_metadata[idx].usagePage + ', ' + devices[i].usagePage;
     }
   }
 
-  /* update the display and send device metadata, if the device list has changed*/
-  if (!(cur_device_id.length == device_id.length &&
-        cur_device_id.every(function(u, i) {
-        return u === device_id[i];}))) {
+  var new_cur_display_name = [];
+  var new_cur_device_metadata = [];
+  for(i = 0; i < device_id.length; i ++) {
+    /* update the client device metadata if a unregistered device was connected,
+       and send that information to the server for registration*/
+    device_idx = client_device_id.indexOf(device_id[i]);
+    if(device_idx == -1) {
+      /* the device is not currently in the client list, so add and register it */
+      client_device_id.push(device_id[i]); // add it to client device list
+      client_device_metadata.push(device_metadata[i]); // save the device metadata
+      sendData(device_metadata[i]); // send data to server for server registration
+    } else {
+      /* generate what will be displayed, uses whats stored in the client database */
+      new_cur_device_metadata.push(client_device_metadata[device_idx]);
+      new_cur_display_name.push(client_device_metadata[device_idx].product);
+    }
+  }
 
+  /* update the display, if the device list has changed*/
+  if (!((cur_device_metadata.length == new_cur_device_metadata.length) &&
+        cur_device_metadata.every(function(u, i) {
+        return JSON.stringify(u) === JSON.stringify(new_cur_device_metadata[i]);}))) {
       /* update the current display lists */
-      cur_device_id = device_id;
-      cur_device_metadata = device_metadata;
-      cur_device_name = display_names;
-
-      /* update the client device metadata if a new device was connected,
-         and send that information to the server for registration */
-      for(i = 0; i < cur_device_id.length; i ++) {
-        if(!client_device_id.includes(cur_device_id[i])) {
-          /* the device is not currently in the client list, so add and register it */
-          client_device_id.push(cur_device_id[i]); // add it to client device list
-          client_device_metadata.push(cur_device_metadata[i]); // save the device metadata
-          sendData(cur_device_metadata[i]); // send data to server for server registration
-        }
-      }
+      cur_device_metadata = new_cur_device_metadata;
+      cur_device_name = new_cur_display_name;
 
       /* refresh the display */
       $('#output').empty();
@@ -175,8 +190,4 @@ function getHIDdata() {
   }
 }
 
-/* keep checking for devices every x ms */
-setInterval(getHIDdata, 200);
-
-/* keep checking for updates every x ms */
-setInterval(getHIDdata, 60000);
+initClientMetadata(); // start the client device page
