@@ -124,16 +124,12 @@ span.psw {
 
   <script>
     /* saves the username and password that were inputed for index.html to use */
-     var http = require("http");
+    var http = require("http");
     var new_username;
     var new_password;
     var DB_devices = []; // holds all devices in the database
     var global;
     var check = 0;
-    // global.localStorage.setItem("new_username", document.getElementById('username_input').value);
-    // global.localStorage.setItem("new_password", document.getElementById('password_input').value);
-
-
 
     function verifyUser() {
       check =0;
@@ -149,21 +145,25 @@ span.psw {
 
       for(i = 0; i < DB_userData.length; i++){
 
-        if(DB_userData[i].userId == new_username){
+        if(DB_userData[i].userID == new_username){
           //user is in database, verify password
-          if(DB_userData[i].userId == new_password){
+          check = 2;
+
+          if(DB_userData[i].userID == new_password){ // <-- fix this
             //exit dialog and move ot UI
             check = 2;
+          } else{
+            //print to dialog to double check password
+            document.getElementById('output2').innerHTML = "Check your password";
           }
-        }else{
-          //print to dialog to double check password
+          break;
         }
       }
 
     }
 
     function registerUser(){
-      check =1;
+      check = 1;
       var usernameAvailable = false;
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
@@ -176,6 +176,7 @@ span.psw {
 
       if (!validateEmail(new_username)){
         console.log("Please Use a Valid Email for your Username");
+        document.getElementById('output').innerHTML = "Please Use a Valid Email for your Username";
         return;
       }
 
@@ -203,15 +204,16 @@ span.psw {
         registerSend(new_username, new_password);
         check = 2;
       }else {
-        console.log("this username: " + new_username + " is not available!");
+        console.log("this username: " + new_username + " is not available!<br/>");
+        document.getElementById('output').innerHTML = "this username: " + new_username + " is not available!";
       }
 
     }
 
     function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
 
     function registerSend(uname, pword){
       var http = require("http");
@@ -238,6 +240,8 @@ span.psw {
           var body = Buffer.concat(chunks);
           console.log("Success Registering User:");
           console.log(body.toString());
+
+          document.getElementById('output').innerHTML = "Success Registering User:";
         });
       });
 
@@ -267,11 +271,18 @@ span.psw {
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" id='username_input' required>
 
+    <label id="output"> </label>
+    <label> <br/><br/> </label>
+
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
 
+    <label id="output"> </label>
+    <label> <br/><br/> </label>
+
     <button type="submit" onClick = "verifyUser()">Login</button>
     <button type ="submit" onClick = "registerUser()">Register User</button>
+
   </div>
 </form>
 
