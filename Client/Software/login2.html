@@ -138,12 +138,13 @@ span.psw {
 
   <div class="container">
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname" id='username_input' required>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
 
-    <button type="submit">Login</button>
+    <button type="submit" onClick = "registerUser()">Login</button>
+    <button type ="submit" onClick = "registerUser()">Register User</button>
   </div>
 </form>
 
