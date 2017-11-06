@@ -122,14 +122,44 @@ span.psw {
 </style>
 <body style="background-color: #bf5700">
 
-<script>
-  /* saves the username and password that were inputed for index.html to use */
-  var global;
-  function registerUser() {
+  <script>
+    /* saves the username and password that were inputed for index.html to use */
+    var http = require("http");
+    var new_username;
+    var new_password;
+    var DB_devices = []; // holds all devices in the database
+    var global;
+
     global.localStorage.setItem("new_username", document.getElementById('username_input').value);
     global.localStorage.setItem("new_password", document.getElementById('password_input').value);
-  }
-</script>
+
+
+
+    function verifyUser() {
+      // new_username = document.getElementById('username_input').value;
+      // new_password = document.getElementById('password_input').value;
+
+      //grab all the userdata
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/userapi/users/", false ); // false for synchronous request
+      xmlHttp.send( null );
+      DB_userData = JSON.parse(xmlHttp.responseText);
+      console.log(DB_userData);
+
+      for(i = 0; i < DB_userData.length){
+
+        if(DB_userData[i].userId == new_username){
+          //user is in database, verify password
+          if(DB_userData[i].userId == new_password){
+            //exit dialog and move ot UI
+          }
+        }else{
+          //print to dialog to double check password
+        }
+      }
+
+    }
+  </script>
 
 <form action="index.html">
   <div class="imgcontainer">
@@ -143,7 +173,7 @@ span.psw {
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
 
-    <button type="submit" onClick = "registerUser()">Login</button>
+    <button type="submit" onClick = "verifyUser()">Login</button>
     <button type ="submit" onClick = "registerUser()">Register User</button>
   </div>
 </form>
