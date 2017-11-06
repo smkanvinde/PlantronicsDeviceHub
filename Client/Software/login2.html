@@ -122,10 +122,6 @@ span.psw {
 </style>
 <body style="background-color: #bf5700">
 
-<h2>Plantronics Device Hub Login</h2>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
 <script>
   /* saves the username and password that were inputed for index.html to use */
   var global;
@@ -135,33 +131,21 @@ span.psw {
   }
 </script>
 
-<div id="id01" class="modal">
-  <form class="modal-content animate" action = "index.html">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="Plantronics.png" alt="Avatar" class="avatar">
-    </div>
+<form action="index.html">
+  <div class="imgcontainer">
+    <img src="Plantronics.png" alt="Avatar" class="avatar">
+  </div>
 
-    <div class="container">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" id='username_input' required>
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
 
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit" onClick = "registerUser()">Login</button>
-      <!--<input type="checkbox" checked="checked"> Remember me-->
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
-    </div>
-  </form>
-
-</div>
-
-
+    <button type="submit">Login</button>
+  </div>
+</form>
 
 </body>
 </html>
