@@ -31,6 +31,6 @@ var table = {
 
 }
 
-var query = connection.query('insert into table set ?', articles, function (err, result){
+var query = connection.query('insert into table set ?', table, function (err, result){
   console.log(query.sql);
 });
