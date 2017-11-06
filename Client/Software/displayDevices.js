@@ -15,19 +15,20 @@ var DB_devices = []; // holds all devices in the database
 /* creates the metadata string that will be displayed on the UI */
 function metadata_str (device) {
   return (
-    "<li class='list-group-item'>" + 'interface: ' + device.interface + "</li>" +
-    "<li class='list-group-item'>" + 'manufacturer: ' + device.manufacturer + "</li>" +
-    "<li class='list-group-item'>" + 'path: ' + "<br/>\u{2022} " + device.path.replace(/, /g, '<br/>\u{2022} ') + "<br/></li>" +
-    "<li class='list-group-item'>" + 'product: ' + device.product + "</li>" +
-    "<li class='list-group-item'>" + 'productId: ' + device.productId + "</li>" +
-    "<li class='list-group-item'>" + 'release: ' + device.release + "</li>" +
-    "<li class='list-group-item'>" + 'serialNumber: ' + device.serialNumber + "</li>" +
-    "<li class='list-group-item'>" + 'usage: ' + device.usage + "</li>" +
-    "<li class='list-group-item'>" + 'usagePage: ' + device.usagePage + "</li>" +
-    "<li class='list-group-item'>" + 'vendorId: ' + device.vendorId + "</li>"
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'interface: ' + device.interface + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'manufacturer: ' + device.manufacturer + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'path: ' + "<br/>\u{2022} " + device.path.replace(/, /g, '<br/>\u{2022} ') + "<br/></li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'product: ' + device.product + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'productId: ' + device.productId + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'release: ' + device.release + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'serialNumber: ' + device.serialNumber + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'usage: ' + device.usage + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'usagePage: ' + device.usagePage + "</li>" +
+    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'vendorId: ' + device.vendorId + "</li>"
     );
 }
 
+//style='background-color: #bf5700'>
 function sendData(data) {
   var options = {
     "method": "POST",
@@ -176,8 +177,8 @@ function getHIDdata() {
       /* refresh the display */
       $('#output').empty();
       for(var i in cur_device_name) {
-          $("#output").append("<ul class='panel panel-default'>" + (cur_device_name[i]))
-          $("#output").append("<div class = 'panel-body'>" + (metadata_str(cur_device_metadata[i])) + "<div>" + "</ul>")
+          $("#output").append("<ul class='panel panel-default' font color = '#ffffff' style='background-color: #bf5700'>" + (cur_device_name[i]))
+          $("#output").append("<div class = 'panel-body' ' font color = '#ffffff' style='background-color: #bf5700'>" + (metadata_str(cur_device_metadata[i])) + "<div>" + "</ul>");
       }
       $('ul').next('div').hide();
 
