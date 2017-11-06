@@ -136,7 +136,7 @@ span.psw {
 
 
     function verifyUser() {
-      check =2;
+      check =0;
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
@@ -153,6 +153,7 @@ span.psw {
           //user is in database, verify password
           if(DB_userData[i].userId == new_password){
             //exit dialog and move ot UI
+            check = 2;
           }
         }else{
           //print to dialog to double check password
@@ -173,19 +174,24 @@ span.psw {
       console.log(new_username);
       console.log(new_password);
 
+      if (!validateEmail(new_username)){
+        console.log("Please Use a Valid Email for your Username");
+        return;
+      }
+
       //verify that username is available
       //grab all the userdata
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/userapi/users/", false ); // false for synchronous request
       xmlHttp.send( null );
       DB_userData = JSON.parse(xmlHttp.responseText);
-      console.log(DB_userData);
+      //console.log(DB_userData);
 
       for(j = 0; j < DB_userData.length; j++){
-        console.log(DB_userData[j].userID);
         if(DB_userData[j].userID == new_username){
           //username is not available
             usernameAvailable = false;
+            break;
         }else{
           //set registration flag
           usernameAvailable = true;
@@ -193,14 +199,19 @@ span.psw {
 
       }
       //register device
-      if(notReg = true){
+      if(usernameAvailable == true){
         registerSend(new_username, new_password);
-          check = 2;
+        check = 2;
       }else {
         console.log("this username: " + new_username + " is not available!");
       }
 
     }
+
+    function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
 
     function registerSend(uname, pword){
       var http = require("http");
