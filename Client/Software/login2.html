@@ -132,10 +132,19 @@ span.psw {
     var check = 0;
 
     function verifyUser() {
+      //clear previous error messages
+      document.getElementById('usernameOutput').innerHTML = "";
+      document.getElementById('passwordOutput').innerHTML = "";
+
       check =0;
+      var correctUsername = false;
+      var correctPassword = false;
+
+      //assign globally to ensure parameters are passed to other functions
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
       global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
+      //store global locally
       new_username = global.localStorage.getItem("new_username");
       new_password = global.localStorage.getItem("new_password");
 
@@ -150,21 +159,32 @@ span.psw {
 
         if(DB_userData[i].userID == new_username){
           //user is in database, verify password
-          check = 2;
-          if(DB_userData[i].userID == new_password){ // <-- fix this
+          correctUsername = true;
+          if(DB_userData[i].password == new_password){
             //exit dialog and move ot UI
-            check = 2;
-          } else{
-            //print to dialog to double check password
-            document.getElementById('output2').innerHTML = "Check your password";
+            correctPassword = true;
           }
-          break;
         }
+        if(correctPassword == true){ break; } //stop looking after verify is complete
+      }//end for
+
+      if(correctUsername == false){
+        document.getElementById('usernameOutput').innerHTML = "Your Username is was not found, Please Try Again or Register";
+      }else if(correctPassword == false){
+        document.getElementById('passwordOutput').innerHTML = "Your Password Doesn't Match Please Try Again";
+      }else if (correctUsername == true && correctPassword == false) {
+        document.getElementById('passwordOutput').innerHTML = "Your Username was found, Password Doesn't Match Please Try Again";
+      }else if(correctUsername == true && correctPassword == true){
+        check = 2; //exit to main UI
       }
 
     }
 
     function registerUser(){
+      //clear previous error messages
+      document.getElementById('usernameOutput').innerHTML = "";
+      document.getElementById('passwordOutput').innerHTML = "";
+
       check = 1;
       var usernameAvailable = false;
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
@@ -178,7 +198,7 @@ span.psw {
 
       if (!validateEmail(new_username)){
         console.log("Please Use a Valid Email for your Username");
-        document.getElementById('output').innerHTML = "Please Use a Valid Email for your Username";
+        document.getElementById('usernameOutput').innerHTML = "Please Use a Valid Email for your Username";
         return;
       }
 
@@ -206,7 +226,7 @@ span.psw {
         check = 2;
       }else {
         console.log("this username: " + new_username + " is not available!<br/>");
-        document.getElementById('output').innerHTML = "this username: " + new_username + " is not available!";
+        document.getElementById('usernameOutput').innerHTML = "This username: " + new_username + " is not available!";
       }
 
     }
@@ -242,7 +262,7 @@ span.psw {
           console.log("Success Registering User:");
           console.log(body.toString());
 
-          document.getElementById('output').innerHTML = "Success Registering User:";
+          document.getElementById('usernameOutput').innerHTML = "Success Registering User:";
         });
       });
 
@@ -272,13 +292,13 @@ span.psw {
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" id='username_input' required>
 
-    <label id="output"> </label>
+    <label id="usernameOutput"> </label>
     <label> <br/><br/> </label>
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
 
-    <label id="output"> </label>
+    <label id="passwordOutput"> </label>
     <label> <br/><br/> </label>
 
     <button type="submit" onClick = "verifyUser()">Login</button>
