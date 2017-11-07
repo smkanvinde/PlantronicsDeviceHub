@@ -1,0 +1,14 @@
+
+
+mongoId = {u'$oid': u'59ff72df5f74242b2fe02950'}
+vendorId = 1133
+productId = 50475
+userId = Jason@Plantronics.com
+userCompany = Plantronics
+serialNumber = None
+manufacturer = Logitech
+product = USB Receiver
+release = 4611
+interface = 0
+usagePage = 1, 65280, 65280, 65280, 1, 12, 1, 65468
+usage = 6, 1, 2, 4, 2, 1, 128, 136
