@@ -7,7 +7,7 @@ class ProductEditComponent extends React.Component{
 		super(props);
 		this.state = {
 			id : this.props.params.productId,
-            mid : '',
+           // mid : '',
 			vid : '',
 			pid : '',
             uid : '',
@@ -25,10 +25,10 @@ class ProductEditComponent extends React.Component{
 
 	getData(self){
 		toastr.info("Fetching device data...");
-		axios.get('/products/'+self.state.id).then(function(response){
+		axios.get('/products/'+self.props.params.productId).then(function(response){
 			toastr.clear();
-			$("#Id").val(response.data.Id);
-			$("#deviceMid").val(response.data.mongoId);
+			//$("#productId").val(response.data.id);//response.data.id
+			//$("#deviceMid").val(response.data.mongoId);
 			$("#deviceVid").val(response.data.vendorId);
 			$("#devicePid").val(response.data.productId);
 			$("#deviceUid").val(response.data.userId);
@@ -41,8 +41,8 @@ class ProductEditComponent extends React.Component{
 			$("#deviceUPage").val(response.data.usagePage);
 			$("#deviceUsage").val(response.data.usage);
 			self.setState({
-				id : response.data.id,
-                mid : response.data.mongoId,
+				//id : response.data.id,
+                //mid : response.data.mongoId,
 				vid : response.data.vendorId,
 				pid : response.data.productId,
 				uid : response.data.userId,
@@ -113,7 +113,7 @@ class ProductEditComponent extends React.Component{
 
 		if(!isError){
 			toastr.info("Updating product data...");
-			axios.put('/products/'+this.state.id,{
+			axios.put('/products/'+this.props.params.productId,{
 				vid : this.state.vid,
 				pid : this.state.pid,
 				uid : this.state.uid,
@@ -138,8 +138,8 @@ class ProductEditComponent extends React.Component{
 
 	onProductVidChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : e.target.value.trim(),
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -155,8 +155,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductPidChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : e.target.value.trim(),
 			uid : this.state.uid,
@@ -172,8 +172,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductUidChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : e.target.value.trim(),
@@ -189,12 +189,12 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductCompChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
-			comp : e.value.target.trim(),
+			comp : e.target.value.trim(),
 			ser : this.state.ser,
 			manu : this.state.manu,
 			prod : this.state.prod,
@@ -206,8 +206,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductSerChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -223,8 +223,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductManuChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -240,8 +240,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductProdChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -257,8 +257,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductRelChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -274,8 +274,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductIntrChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -291,8 +291,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductUPageChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,
@@ -308,8 +308,8 @@ class ProductEditComponent extends React.Component{
 	}
 	onProductUsageChange(e){
 		this.setState({
-			id : this.state.id,
-            mid : this.state.mid,
+			//id : this.state.id,
+            //mid : this.state.mid,
 			vid : this.state.vid,
 			pid : this.state.pid,
 			uid : this.state.uid,

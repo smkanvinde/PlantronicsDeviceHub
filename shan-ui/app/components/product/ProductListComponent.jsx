@@ -11,7 +11,7 @@ class ProductListComponent extends React.Component{
 
 		this.state = {
 			cols : [
-			    {key:'dataHeaderId',label:'Id'},
+			    {key:'dataHeaderId',label:'id'},
 			    {key:'dataHeaderMid',label:'Mongo ID'},
 			    {key:'dataHeaderVid',label:'Vendor ID'},
 			    {key:'dataHeaderPid',label:'Product ID'},
@@ -32,7 +32,7 @@ class ProductListComponent extends React.Component{
 	}
 
 	getProductList(){
-		toastr.info('Fetching product list...');
+		toastr.info('Fetching device list...');
 		var self = this;
 		axios.get('products').then(function(response){
 			toastr.clear();
@@ -59,7 +59,7 @@ class ProductListComponent extends React.Component{
 
 	doDeleteProduct(data){
 		var id = $(data.target).data('id');
-		toastr.info('Deleting product...');
+		toastr.info('Deleting device...');
 		axios.delete('products/'+id).then(function(response){
 			toastr.clear();
 			$(".data-row[data-id='"+id+"']").slideUp();

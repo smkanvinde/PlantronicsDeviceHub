@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     pool.getConnection(function(err, connection) {
         var id = req.params.id;
-        connection.query("SELECT * FROM hub WHERE Id='" + id + "' LIMIT 1", function(err, rows) {
+        connection.query("SELECT * FROM hub WHERE id='" + id + "' LIMIT 1", function(err, rows) {
             if (!err && rows.length > 0) {
                 res.json(rows[0]);
             } else {
@@ -34,7 +34,7 @@ router.get('/:id', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
     pool.getConnection(function(err, connection) {
         var id = req.params.id;
-        connection.query("DELETE FROM hub WHERE Id='" + id + "'", function(err, rows) {
+        connection.query("DELETE FROM hub WHERE id='" + id + "'", function(err, rows) {
             if (!err) {
                 res.json({
                     "status": true
@@ -51,7 +51,7 @@ router.delete('/:id', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
     pool.getConnection(function(err, connection) {
         var postBody = req.body;
-        var productId = req.params.id;
+        var id = req.params.id;
         var vid = postBody.vendorId;
         var pid = postBody.productId;
         var uid = postBody.userId;
@@ -63,9 +63,9 @@ router.put('/:id', function(req, res, next) {
         var intr = postBody.interface;
         var upage = postBody.userPage;
         var usage = postBody.usage;
-        connection.query("UPDATE hub SET `vendorId`='" + vid + "', `productId`='" + pid + "', `userId`='" + uid + "', `userCompany`='" + comp + "', `serialNumber`='" + ser + "', `manufacturer`='" + manu + "', `product`='" + prod + "', `release`='" + rel + "', `interface`='" + intr + "', `usagePage`='" + upage + "', `usage`='" + usage + "' WHERE Id='" + productId + "'", function(err, rows) {
+        connection.query("UPDATE hub SET `vendorId`='" + vid + "', `productId`='" + pid + "', `userId`='" + uid + "', `userCompany`='" + comp + "', `serialNumber`='" + ser + "', `manufacturer`='" + manu + "', `product`='" + prod + "', `release`='" + rel + "', `interface`='" + intr + "', `usagePage`='" + upage + "', `usage`='" + usage + "' WHERE id='" + id + "'", function(err, rows) {
             if (rows.affectedRows) {
-                connection.query("SELECT * FROM hub WHERE Id='" + productId + "' LIMIT 1", function(err, rows) {
+                connection.query("SELECT * FROM hub WHERE id='" + id + "' LIMIT 1", function(err, rows) {
                     if (!err && rows.length > 0) {
                         res.json(rows[0]);
                     } else {
@@ -74,6 +74,13 @@ router.put('/:id', function(req, res, next) {
                 });
                 connection.release();
             }
+            /*if (!err) {
+                res.json({
+                    "status": true
+                });
+            } else {
+                res.json([]);
+            }*/
         });
         connection.release();
     });
