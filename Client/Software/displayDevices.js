@@ -50,8 +50,19 @@ function sendData(data) {
 
     res.on("end", function () {
       var body = Buffer.concat(chunks);
+      var response = body.toString();
       console.log("HTTP return");
-      console.log(body.toString());
+      console.log(response);
+
+      /* update the client database to include mongo id */
+      var obj = JSON.parse(response);
+      var id = ['serialNumber: ' + obj.serialNumber,
+                'vendorID: ' + obj.vendorId,
+                'product: ' + obj.productId];
+      var id_string = id.join(", ");
+
+      var idx = client_device_id.indexOf(id_string);
+      client_device_metadata[idx] = obj;
     });
   });
 
@@ -111,10 +122,10 @@ function initClientMetadata() {
    }
 
    /* keep checking for devices every x ms */
-   setInterval(getHIDdata, 200);
+   setInterval(getHIDdata, 500);
 
    /* keep checking for updates every x ms */
-   setInterval(updateClientMetadata, 1000);
+   // setInterval(updateClientMetadata, 1000);
 }
 
 /* updates client device metadata if any changes were made in MongoDB */
