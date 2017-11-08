@@ -30,23 +30,6 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-//delete product
-router.delete('/:id', function(req, res, next) {
-    pool.getConnection(function(err, connection) {
-        var id = req.params.id;
-        connection.query("DELETE FROM hub WHERE id='" + id + "'", function(err, rows) {
-            if (!err) {
-                res.json({
-                    "status": true
-                });
-            } else {
-                res.json([]);
-            }
-        });
-        connection.release();
-    });
-});
-
 //update product
 router.put('/:id', function(req, res, next) {
     pool.getConnection(function(err, connection) {

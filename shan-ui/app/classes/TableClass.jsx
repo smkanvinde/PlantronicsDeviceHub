@@ -26,9 +26,6 @@ const TableClass = React.createClass({
 					<div className="col-md-2">
 						<button className="btn btn-xs btn-primary" onClick={self.props.onUpdate} data-id={colData.id}>Edit</button>
 					</div>
-					<div className="col-md-2">
-						<button className="btn btn-xs btn-danger" onClick={self.props.onDelete} data-id={colData.id}>Delete</button>
-					</div>
 				</td>
 			);
 			return <tr className='data-row' data-id={colData.id} key={colData.id}>{rowElement}</tr>;
