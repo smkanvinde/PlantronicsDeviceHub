@@ -67,11 +67,21 @@ function getDBData() {
 }
 
 function getSpecifcData(id) {
-  var xmlHttp = new XMLHttpRequest();
-  var link = "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products" + "/" + id;
-  xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products", false ); // false for synchronous request
-  xmlHttp.send( null );
-  return JSON.parse(xmlHttp.responseText);
+
+  // if(id) {
+  //   console.log(id)
+  //   var xmlHttp = new XMLHttpRequest();
+  //   var link = "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products" + "/" + id;
+  //   xmlHttp.open( "GET", link, false ); // false for synchronous request
+  //   xmlHttp.send( null );
+  //   return JSON.parse(xmlHttp.responseText);
+  // }
+
+  getDBData(); // get all the devices in the database
+  /* look for the device with the correct id */
+  for(i = 0; i < DB_devices.length; i++) {
+     if(DB_devices[i]._id == id) { return DB_devices[i];}
+   }
 }
 
 function updateSpecifcData() {
@@ -111,10 +121,16 @@ function initClientMetadata() {
 function updateClientMetadata() {
   /* assumes server has the most recent information */
   for(i = 0; i < client_device_metadata.length; i++) {
-    var id = ['serialNumber: ' + client_device_metadata[i].serialNumber,
-              'vendorID: ' + client_device_metadata[i].vendorId,
-              'product: ' + client_device_metadata[i].productId];
-    var id_string = id.join(", ");
+    updatedData = getSpecifcData(client_device_metadata[i]._id);
+    if(!(typeof updatedData === "undefined")) {
+      client_device_metadata[i] = updatedData;
+      // console.log(client_device_metadata[i]);
+      var id = ['serialNumber: ' + client_device_metadata[i].serialNumber,
+                'vendorID: ' + client_device_metadata[i].vendorId,
+                'product: ' + client_device_metadata[i].productId];
+      var id_string = id.join(", ");
+      client_device_id[i] = id_string;
+    }
   }
 }
 
