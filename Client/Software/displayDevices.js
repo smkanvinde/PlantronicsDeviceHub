@@ -2,6 +2,8 @@ var http = require("http");
 let $ = require('jquery');
 
 var username = global.localStorage.getItem("new_username"); // contains the current user logged in
+var companyName = global.localStorage.getItem("new_companyname");
+console.log(companyName);
 
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices

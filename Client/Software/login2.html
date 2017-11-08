@@ -127,6 +127,7 @@ span.psw {
     var http = require("http");
     var new_username;
     var new_password;
+    var companyname;
     var DB_devices = []; // holds all devices in the database
     var global;
     var check = 0;
@@ -142,11 +143,15 @@ span.psw {
 
       //assign globally to ensure parameters are passed to other functions
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
-      global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
       //store global locally
       new_username = global.localStorage.getItem("new_username");
       new_password = global.localStorage.getItem("new_password");
+
+      //extract the company name from the email username
+      companyname = new_username.slice(new_username.indexOf("@") + 1 , new_username.indexOf("."));
+      global.localStorage.setItem("new_companyname", companyname);
+
 
       //grab all the userdata
       var xmlHttp = new XMLHttpRequest();
@@ -187,11 +192,16 @@ span.psw {
 
       check = 1;
       var usernameAvailable = false;
+      //assign globally to ensure parameters are passed to other functions
       global.localStorage.setItem("new_username", document.getElementById('username_input').value);
-      global.localStorage.setItem("new_password", document.getElementById('password_input').value);
 
+      //store global locally
       new_username = global.localStorage.getItem("new_username");
       new_password = global.localStorage.getItem("new_password");
+
+      //extract the company name from the email username
+      companyname = new_username.slice(new_username.indexOf("@") + 1 , new_username.indexOf("."));
+      global.localStorage.setItem("new_companyname", companyname);
 
       if(new_password == ""){
         document.getElementById('passwordOutput').innerHTML = "Please Enter a Password";
@@ -219,7 +229,7 @@ span.psw {
       if(DB_userData.length ===0){
         usernameAvailable = true;
       }
-      
+
       for(j = 0; j < DB_userData.length; j++){
         if(DB_userData[j].userID == new_username){
           //username is not available
