@@ -193,6 +193,12 @@ span.psw {
       new_username = global.localStorage.getItem("new_username");
       new_password = global.localStorage.getItem("new_password");
 
+      if(new_password == ""){
+        document.getElementById('passwordOutput').innerHTML = "Please Enter a Password";
+        check = 1;
+        return;
+      }
+
       console.log(new_username);
       console.log(new_password);
 
@@ -210,6 +216,10 @@ span.psw {
       DB_userData = JSON.parse(xmlHttp.responseText);
       //console.log(DB_userData);
 
+      if(DB_userData.length ===0){
+        usernameAvailable = true;
+      }
+      
       for(j = 0; j < DB_userData.length; j++){
         if(DB_userData[j].userID == new_username){
           //username is not available
