@@ -52,16 +52,16 @@ router.put('/:id', function(req, res, next) {
     pool.getConnection(function(err, connection) {
         var postBody = req.body;
         var id = req.params.id;
-        var vid = postBody.vendorId;
-        var pid = postBody.productId;
-        var uid = postBody.userId;
-        var comp = postBody.userCompany;
-        var ser = postBody.serialNumber;
-        var manu = postBody.manufacturer;
-        var prod = postBody.product;
-        var rel = postBody.release;
-        var intr = postBody.interface;
-        var upage = postBody.userPage;
+        var vid = postBody.vid;
+        var pid = postBody.pid;
+        var uid = postBody.uid;
+        var comp = postBody.comp;
+        var ser = postBody.ser;
+        var manu = postBody.manu;
+        var prod = postBody.prod;
+        var rel = postBody.rel;
+        var intr = postBody.intr;
+        var upage = postBody.upage;
         var usage = postBody.usage;
         connection.query("UPDATE hub SET `vendorId`='" + vid + "', `productId`='" + pid + "', `userId`='" + uid + "', `userCompany`='" + comp + "', `serialNumber`='" + ser + "', `manufacturer`='" + manu + "', `product`='" + prod + "', `release`='" + rel + "', `interface`='" + intr + "', `usagePage`='" + upage + "', `usage`='" + usage + "' WHERE id='" + id + "'", function(err, rows) {
             if (rows.affectedRows) {
@@ -72,7 +72,7 @@ router.put('/:id', function(req, res, next) {
                         res.json([]);
                     }
                 });
-                connection.release();
+                //connection.release();
             }
             /*if (!err) {
                 res.json({

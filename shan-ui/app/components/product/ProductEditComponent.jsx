@@ -114,6 +114,7 @@ class ProductEditComponent extends React.Component{
 		if(!isError){
 			toastr.info("Updating product data...");
 			axios.put('/products/'+this.props.params.productId,{
+                id : this.props.params.productId,
 				vid : this.state.vid,
 				pid : this.state.pid,
 				uid : this.state.uid,
