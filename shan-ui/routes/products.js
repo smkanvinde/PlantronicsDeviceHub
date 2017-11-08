@@ -1,5 +1,12 @@
 var express = require('express');
+var exec = require('child_process').exec;
 var router = express.Router();
+
+function execute(command,callback) {
+    exec(command, function(error, stdout, stderr){
+        callback(stdout);   
+    });
+};
 
 //get list of product
 router.get('/', function(req, res, next) {
@@ -67,6 +74,13 @@ router.put('/:id', function(req, res, next) {
         });
         connection.release();
     });
+	execute('~/Collaborations/scripts/sql-mongo.sh', function(output) {
+    	console.log(output);
+	});
+	execute('~/Collaborations/scripts/mongo-export.sh', function(output) {
+    	console.log(output);
+	});
+
 });
 
 module.exports = router;
