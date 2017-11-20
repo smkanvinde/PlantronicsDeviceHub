@@ -17,6 +17,7 @@ class ProductListComponent extends React.Component{
 			    {key:'dataHeaderPid',label:'Product ID'},
 			    {key:'dataHeaderUid',label:'User ID'},
 			    {key:'dataHeaderComp',label:'User Company'},
+                {key:'dataHeaderPath',label:'Path'},
 			    {key:'dataHeaderSer',label:'Serial Number'},
 			    {key:'dataHeaderManu',label:'Manufacturer'},
 			    {key:'dataHeaderProd',label:'Product'},

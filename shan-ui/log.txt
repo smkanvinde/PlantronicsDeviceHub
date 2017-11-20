@@ -1,0 +1,34 @@
+
+> tutorial@0.0.0 start /home/ubuntu/PlantronicsDeviceHub/shan-ui
+> node ./bin/www
+
+[0mGET / [36m304 [0m222.774 ms - -[0m
+[0mGET /javascripts/bundle.js [32m200 [0m3.507 ms - 319616[0m
+[0mGET /products [32m200 [0m11.727 ms - 1987[0m
+[0mGET / [32m200 [0m9.352 ms - 569[0m
+[0mGET /javascripts/bundle.js [32m200 [0m0.676 ms - 319616[0m
+[0mGET /products [32m200 [0m2.392 ms - 1987[0m
+[0mGET /favicon.ico [33m404 [0m2.355 ms - 1288[0m
+[0mGET / [36m304 [0m10.233 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.741 ms - -[0m
+[0mGET /products [36m304 [0m2.269 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m1.007 ms - 1288[0m
+[0mGET /products/2 [32m200 [0m2.260 ms - 459[0m
+[0mPUT /products/2 [32m200 [0m16.202 ms - 15[0m
+{"_id":"5a122b4f32250158c6aa0fc3","vendorId":11254,"productId":41110,"path":"\\\\?\\hid#hidclass&col01#1&2d595ca7&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#hidclass&col02#1&2d595ca7&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}","manufacturer":"Acer Inc.","product":"Launch Manager Wireless Device","release":1,"interface":-1,"usagePage":"65280, 1","usage":"1, 12","userId":"Jason@Thai.com","userCompany":"Thai","__v":0}
+[0mGET /products [32m200 [0m1.754 ms - 2[0m
+[0mGET / [32m200 [0m12.681 ms - 569[0m
+[0mGET /javascripts/bundle.js [32m200 [0m0.654 ms - 319616[0m
+[0mGET /products [32m200 [0m1.596 ms - 1980[0m
+[0mGET /favicon.ico [33m404 [0m0.761 ms - 1288[0m
+[0mGET / [36m304 [0m12.213 ms - -[0m
+[0mGET /javascripts/bundle.js [32m200 [0m0.648 ms - 319616[0m
+[0mGET /products [32m200 [0m1.628 ms - 1980[0m
+[0mGET /products [36m304 [0m1.474 ms - -[0m
+[0mGET / [36m304 [0m10.436 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.368 ms - -[0m
+[0mGET /products [36m304 [0m1.649 ms - -[0m
+[0mGET /products/2 [32m200 [0m1.595 ms - 452[0m
+[0mPUT /products/2 [32m200 [0m3.691 ms - 15[0m
+{"_id":"5a122b4f32250158c6aa0fc3","vendorId":11254,"productId":41110,"path":"\\\\?\\hid#hidclass&col01#1&2d595ca7&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#hidclass&col02#1&2d595ca7&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}","manufacturer":"Acer Inc.","product":"Launch Manager Wireless Device","release":1,"interface":-1,"usagePage":"65280, 1","usage":"1, 12","userId":"s@k.com","userCompany":"Thai","__v":0}
+[0mGET /products [32m200 [0m1.458 ms - 2[0m

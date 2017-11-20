@@ -7,11 +7,12 @@ class ProductEditComponent extends React.Component{
 		super(props);
 		this.state = {
 			id : this.props.params.productId,
-           // mid : '',
+            mid : '',
 			vid : '',
 			pid : '',
             uid : '',
             comp : '',
+          //  path : '',
             ser : '',
             manu : '',
             prod : '',
@@ -25,7 +26,7 @@ class ProductEditComponent extends React.Component{
 
 	getData(self){
 		toastr.info("Fetching device data...");
-		axios.get('/products/'+self.props.params.productId).then(function(response){
+		axios.get('/products/'+self.state.id).then(function(response){
 			toastr.clear();
 			//$("#productId").val(response.data.id);//response.data.id
 			//$("#deviceMid").val(response.data.mongoId);
@@ -33,6 +34,7 @@ class ProductEditComponent extends React.Component{
 			$("#devicePid").val(response.data.productId);
 			$("#deviceUid").val(response.data.userId);
 			$("#deviceComp").val(response.data.userCompany);
+			//$("#devicePath").val(response.data.path);
 			$("#deviceSer").val(response.data.serialNumber);
 			$("#deviceManu").val(response.data.manufacturer);
 			$("#deviceProd").val(response.data.product);
@@ -41,8 +43,8 @@ class ProductEditComponent extends React.Component{
 			$("#deviceUPage").val(response.data.usagePage);
 			$("#deviceUsage").val(response.data.usage);
 			self.setState({
-				//id : response.data.id,
-                //mid : response.data.mongoId,
+				id : response.data.id,
+                mid : response.data.mongoId,
 				vid : response.data.vendorId,
 				pid : response.data.productId,
 				uid : response.data.userId,
@@ -113,8 +115,9 @@ class ProductEditComponent extends React.Component{
 
 		if(!isError){
 			toastr.info("Updating product data...");
-			axios.put('/products/'+this.props.params.productId,{
-                id : this.props.params.productId,
+			axios.put('/products/'+this.state.id, { //this.props.params.productId,{
+                //id : this.state.id, //this.props.params.productId,
+                mid : this.state.mid,
 				vid : this.state.vid,
 				pid : this.state.pid,
 				uid : this.state.uid,
