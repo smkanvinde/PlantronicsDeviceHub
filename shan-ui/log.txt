@@ -2,15 +2,11 @@
 > tutorial@0.0.0 start /home/ubuntu/PlantronicsDeviceHub/shan-ui
 > node ./bin/www
 
-[0mGET / [32m200 [0m205.413 ms - 569[0m
-[0mGET /javascripts/bundle.js [32m200 [0m3.398 ms - 319617[0m
-[0mGET /products [32m200 [0m12.045 ms - 2973[0m
-[0mGET /favicon.ico [33m404 [0m2.338 ms - 1288[0m
-[0mGET /products/4 [32m200 [0m3.223 ms - 685[0m
-[0mPUT /products/4 [32m200 [0m16.573 ms - 15[0m
-{"_id":"5a122ddd32250158c6aa0fc5","vendorId":1133,"productId":50479,"path":"\\\\?\\hid#vid_046d&pid_c52f&mi_00#7&23151d8d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_046d&pid_c52f&mi_01&col02#7&643469c&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_046d&pid_c52f&mi_01&col03#7&643469c&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_046d&pid_c52f&mi_01&col01#7&643469c&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}","manufacturer":"Spanish Inquisition","product":"USB Receiver","release":8705,"interface":0,"usagePage":"1, 65280, 65280, 12","usage":"2, 1, 2, 1","userId":"New@Name.com","userCompany":"Name","__v":0}
-[0mGET /products [32m200 [0m2.420 ms - 2[0m
-[0mGET / [32m200 [0m12.934 ms - 569[0m
-[0mGET /javascripts/bundle.js [32m200 [0m0.805 ms - 319617[0m
-[0mGET /products [32m200 [0m1.737 ms - 2981[0m
-[0mGET /favicon.ico [33m404 [0m0.970 ms - 1288[0m
+[0mGET / [32m200 [0m206.085 ms - 569[0m
+[0mGET /javascripts/bundle.js [36m304 [0m1.630 ms - -[0m
+[0mGET /products [36m304 [0m12.288 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m2.455 ms - 1288[0m
+[0mGET /products/5 [32m200 [0m2.899 ms - 319[0m
+{"_id":"5a122ddd32250158c6aa0fc6","vendorId":1,"productId":1,"path":"\\\\?\\hid#hpq6001#3&9489f59&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}","release":1,"interface":-1,"usagePage":"1","usage":"12","userId":"New@Name.com","userCompany":"Shan","__v":0,"product":"Erroneous"}
+[0mPUT /products/5 [32m200 [0m518.005 ms - 15[0m
+[0mGET /products [32m200 [0m2.549 ms - 2979[0m

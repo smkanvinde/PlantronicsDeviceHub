@@ -208,10 +208,11 @@ router.put('/:id', function(req, res, next) {
 	execute('~/Collaborations/scripts/sql-mongo.sh', function(output) {
     	console.log(output);
 	});*/
-    res.json({
-        "status": true
-    });
-
+    setTimeout(function(){
+        res.json({
+         "status": true
+        });  
+    }, 500);
 });
 
 module.exports = router;
