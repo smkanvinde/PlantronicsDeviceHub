@@ -3,7 +3,6 @@ let $ = require('jquery');
 
 var username = global.localStorage.getItem("new_username"); // contains the current user logged in
 var companyName = global.localStorage.getItem("new_companyname");
-console.log(companyName);
 
 var client_device_id = []; // holds all the device id's of client devices
 var client_device_metadata = []; // holds all the device metadata of client devices
@@ -19,7 +18,7 @@ function metadata_str (device) {
   return (
     "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'interface: ' + device.interface + "</li>" +
     "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'manufacturer: ' + device.manufacturer + "</li>" +
-    "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'path: ' + "<br/>\u{2022} " + device.path.replace(/, /g, '<br/>\u{2022} ') + "<br/></li>" +
+    // "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'path: ' + "<br/>\u{2022} " + device.path.replace(/, /g, '<br/>\u{2022} ') + "<br/></li>" +
     "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'product: ' + device.product + "</li>" +
     "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'productId: ' + device.productId + "</li>" +
     "<li class='list-group-item' font color = '#ffffff' style='background-color: #bf5700'>" + 'release: ' + device.release + "</li>" +
@@ -77,24 +76,19 @@ function getDBData() {
   xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products", false ); // false for synchronous request
   xmlHttp.send( null );
   DB_devices = JSON.parse(xmlHttp.responseText);
+  console.log(DB_devices);
 }
 
 function getSpecifcData(id) {
 
-  // if(id) {
-  //   console.log(id)
-  //   var xmlHttp = new XMLHttpRequest();
-  //   var link = "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products" + "/" + id;
-  //   xmlHttp.open( "GET", link, false ); // false for synchronous request
-  //   xmlHttp.send( null );
-  //   return JSON.parse(xmlHttp.responseText);
-  // }
-
-  getDBData(); // get all the devices in the database
-  /* look for the device with the correct id */
-  for(i = 0; i < DB_devices.length; i++) {
-     if(DB_devices[i]._id == id) { return DB_devices[i];}
-   }
+  if(id) {
+    // console.log(id)
+    var xmlHttp = new XMLHttpRequest();
+    var link = "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/api/products" + "/" + id;
+    xmlHttp.open( "GET", link, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return JSON.parse(xmlHttp.responseText);
+  }
 }
 
 function updateSpecifcData() {
@@ -127,11 +121,13 @@ function initClientMetadata() {
    setInterval(getHIDdata, 500);
 
    /* keep checking for updates every x ms */
-   // setInterval(updateClientMetadata, 1000);
+   setInterval(updateClientMetadata, 5000);
 }
 
 /* updates client device metadata if any changes were made in MongoDB */
 function updateClientMetadata() {
+  // getDBData(); // get all the devices in the database
+
   /* assumes server has the most recent information */
   for(i = 0; i < client_device_metadata.length; i++) {
     updatedData = getSpecifcData(client_device_metadata[i]._id);
@@ -166,6 +162,7 @@ function getHIDdata() {
     if(!device_id.includes(id_string)) {
       /* a new device not in our display list was detected, add it to the display list */
       devices[i].userId = username; // add username to the metadata
+      devices[i].userCompany = companyName;
       device_id.push(id_string);
       device_metadata.push(devices[i]);
     } else {
