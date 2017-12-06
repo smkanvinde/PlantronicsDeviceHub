@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+<body style="background-color: #bf5700">
+
+  <script>
+    /* saves the username and password that were inputed for index.html to use */
+    var http = require("http");
+    var new_username;
+    var new_password;
+    var DB_devices = []; // holds all devices in the database
+    var global;
+    var check = 0;
+
+    function verifyUser() {
+      //clear previous error messages
+      document.getElementById('usernameOutput').innerHTML = "";
+      document.getElementById('passwordOutput').innerHTML = "";
+
+      check =0;
+      var correctUsername = false;
+      var correctPassword = false;
+
+      //assign globally to ensure parameters are passed to other functions
+      global.localStorage.setItem("new_username", document.getElementById('username_input').value);
+      global.localStorage.setItem("new_password", document.getElementById('password_input').value);
+
+      //store global locally
+      new_username = global.localStorage.getItem("new_username");
+      new_password = global.localStorage.getItem("new_password");
+
+      //grab all the userdata
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/userapi/users/", false ); // false for synchronous request
+      xmlHttp.send( null );
+      DB_userData = JSON.parse(xmlHttp.responseText);
+      console.log(DB_userData);
+
+      for(i = 0; i < DB_userData.length; i++){
+
+        if(DB_userData[i].userID == new_username){
+          //user is in database, verify password
+          correctUsername = true;
+          if(DB_userData[i].password == new_password){
+            //exit dialog and move ot UI
+            correctPassword = true;
+          }
+        }
+        if(correctPassword == true){ break; } //stop looking after verify is complete
+      }//end for
+
+      if(correctUsername == false){
+        document.getElementById('usernameOutput').innerHTML = "Your Username is was not found, Please Try Again or Register";
+      }else if(correctPassword == false){
+        document.getElementById('passwordOutput').innerHTML = "Your Password Doesn't Match Please Try Again";
+      }else if (correctUsername == true && correctPassword == false) {
+        document.getElementById('passwordOutput').innerHTML = "Your Username was found, Password Doesn't Match Please Try Again";
+      }else if(correctUsername == true && correctPassword == true){
+        check = 2; //exit to main UI
+      }
+
+    }
+
+    function registerUser(){
+      //clear previous error messages
+      document.getElementById('usernameOutput').innerHTML = "";
+      document.getElementById('passwordOutput').innerHTML = "";
+
+      check = 1;
+      var usernameAvailable = false;
+      global.localStorage.setItem("new_username", document.getElementById('username_input').value);
+      global.localStorage.setItem("new_password", document.getElementById('password_input').value);
+
+      new_username = global.localStorage.getItem("new_username");
+      new_password = global.localStorage.getItem("new_password");
+
+      if(new_password == ""){
+        document.getElementById('passwordOutput').innerHTML = "Please Enter a Password";
+        check = 1;
+        return;
+      }
+
+      console.log(new_username);
+      console.log(new_password);
+
+      if (!validateEmail(new_username)){
+        console.log("Please Use a Valid Email for your Username");
+        document.getElementById('usernameOutput').innerHTML = "Please Use a Valid Email for your Username";
+        return;
+      }
+
+      //verify that username is available
+      //grab all the userdata
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "http://ec2-18-221-169-223.us-east-2.compute.amazonaws.com:3000/userapi/users/", false ); // false for synchronous request
+      xmlHttp.send( null );
+      DB_userData = JSON.parse(xmlHttp.responseText);
+      //console.log(DB_userData);
+
+      if(DB_userData.length ===0){
+        usernameAvailable = true;
+      }
+      
+      for(j = 0; j < DB_userData.length; j++){
+        if(DB_userData[j].userID == new_username){
+          //username is not available
+            usernameAvailable = false;
+            break;
+        } else{
+          //set registration flag
+          usernameAvailable = true;
+        }
+      }
+      //register device
+      if(usernameAvailable == true){
+        registerSend(new_username, new_password);
+        check = 2;
+      }else {
+        console.log("this username: " + new_username + " is not available!<br/>");
+        document.getElementById('usernameOutput').innerHTML = "This username: " + new_username + " is not available!";
+      }
+
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    function registerSend(uname, pword){
+      var http = require("http");
+      console.log("register device");
+      var options = {
+        "method": "POST",
+        "hostname": "ec2-18-221-169-223.us-east-2.compute.amazonaws.com",
+        "port": "3000",
+        "path": "/userapi/users/",
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+        }
+      };
+
+      var req = http.request(options, function (res) {
+        var chunks = [];
+
+        res.on("data", function (chunk) {
+          chunks.push(chunk);
+        });
+
+        res.on("end", function () {
+          var body = Buffer.concat(chunks);
+          console.log("Success Registering User:");
+          console.log(body.toString());
+
+          document.getElementById('usernameOutput').innerHTML = "Success Registering User:";
+        });
+      });
+
+      req.write(JSON.stringify({ userID: uname, password: pword }));
+      req.end();
+    }
+
+
+    function valid(){
+      if(check ===2){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
+
+  </script>
+
+<form onsubmit="return valid()" action = "index.html" >
+  <div class="imgcontainer">
+    <img src="Plantronics.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id='username_input' required>
+
+    <label id="usernameOutput"> </label>
+    <label> <br/><br/> </label>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id='password_input' required>
+
+    <label id="passwordOutput"> </label>
+    <label> <br/><br/> </label>
+
+    <button type="submit" onClick = "verifyUser()">Login</button>
+    <button type ="submit" onClick = "registerUser()">Register User</button>
+
+  </div>
+</form>
+
+</body>
+</html>
