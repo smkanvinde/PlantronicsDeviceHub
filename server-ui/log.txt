@@ -1,0 +1,425 @@
+
+> tutorial@0.0.0 start /home/ubuntu/PlantronicsDeviceHub/shan-ui
+> node ./bin/www
+
+[0mGET / [32m200 [0m206.085 ms - 569[0m
+[0mGET /javascripts/bundle.js [36m304 [0m1.630 ms - -[0m
+[0mGET /products [36m304 [0m12.288 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m2.455 ms - 1288[0m
+[0mGET /products/5 [32m200 [0m2.899 ms - 319[0m
+{"_id":"5a122ddd32250158c6aa0fc6","vendorId":1,"productId":1,"path":"\\\\?\\hid#hpq6001#3&9489f59&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}","release":1,"interface":-1,"usagePage":"1","usage":"12","userId":"New@Name.com","userCompany":"Shan","__v":0,"product":"Erroneous"}
+[0mPUT /products/5 [32m200 [0m518.005 ms - 15[0m
+[0mGET /products [32m200 [0m2.549 ms - 2979[0m
+[0mGET /products [36m304 [0m2.115 ms - -[0m
+[0mGET /products [36m304 [0m1.681 ms - -[0m
+[0mGET / [36m304 [0m11.530 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.468 ms - -[0m
+[0mGET /products [32m200 [0m1.740 ms - 2979[0m
+[0mGET / [32m200 [0m11.757 ms - 569[0m
+[0mGET /javascripts/bundle.js [32m200 [0m2.286 ms - 319617[0m
+[0mGET /products [32m200 [0m1.810 ms - 4631[0m
+[0mGET / [32m200 [0m21.809 ms - 569[0m
+[0mGET /javascripts/bundle.js [32m200 [0m1.822 ms - 319617[0m
+[0mGET /products [32m200 [0m8.175 ms - 2[0m
+[0mGET /favicon.ico [33m404 [0m1.042 ms - 1288[0m
+[0mGET / [36m304 [0m8.811 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m1.274 ms - -[0m
+[0mGET /products [36m304 [0m1.616 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m0.812 ms - 1288[0m
+[0mGET / [36m304 [0m9.818 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.375 ms - -[0m
+[0mGET /products [36m304 [0m1.611 ms - -[0m
+[0mGET / [36m304 [0m6.239 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.385 ms - -[0m
+[0mGET /products [32m200 [0m3.480 ms - 3821[0m
+[0mGET / [36m304 [0m23.132 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.339 ms - -[0m
+[0mGET /products [36m304 [0m1.660 ms - -[0m
+[0mGET / [36m304 [0m5.572 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.306 ms - -[0m
+[0mGET /products [32m200 [0m1.643 ms - 4552[0m
+[0mGET / [36m304 [0m5.869 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.271 ms - -[0m
+[0mGET /products [36m304 [0m1.754 ms - -[0m
+[0mGET /products/7 [32m200 [0m3.653 ms - 730[0m
+[0mGET /products [36m304 [0m1.564 ms - -[0m
+[0mGET /products/7 [36m304 [0m1.452 ms - -[0m
+[0mGET /products [36m304 [0m1.558 ms - -[0m
+[0mGET /products/2 [32m200 [0m2.196 ms - 619[0m
+[0mGET /products [36m304 [0m2.853 ms - -[0m
+[0mGET /products/7 [36m304 [0m1.452 ms - -[0m
+[0mGET /products [36m304 [0m1.616 ms - -[0m
+[0mGET /products/7 [36m304 [0m1.475 ms - -[0m
+{"_id":"5a131d9232250158c6aa0fd8","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"JustinR@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/7 [32m200 [0m508.069 ms - 15[0m
+[0mGET /products [32m200 [0m1.643 ms - 4544[0m
+[0mGET /products/7 [32m200 [0m1.394 ms - 722[0m
+{"_id":"5a131d9232250158c6aa0fd8","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"PLT","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"JustinR@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/7 [32m200 [0m504.572 ms - 15[0m
+[0mGET /products [32m200 [0m1.746 ms - 4552[0m
+[0mGET /products/7 [32m200 [0m2.198 ms - 730[0m
+{"_id":"5a131d9232250158c6aa0fd8","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"JustinR@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/7 [32m200 [0m504.414 ms - 15[0m
+[0mGET /products [32m200 [0m6.380 ms - 4524[0m
+[0mGET / [36m304 [0m14.222 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.359 ms - -[0m
+[0mGET /products [36m304 [0m1.591 ms - -[0m
+[0mGET / [36m304 [0m10.606 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.363 ms - -[0m
+[0mGET /products [32m200 [0m3.005 ms - 5255[0m
+[0mGET / [36m304 [0m14.188 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.311 ms - -[0m
+[0mGET /products [32m200 [0m1.506 ms - 2201[0m
+[0mGET / [36m304 [0m13.606 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.357 ms - -[0m
+[0mGET /products [32m200 [0m1.576 ms - 4552[0m
+[0mGET /products [36m304 [0m1.529 ms - -[0m
+[0mGET / [36m304 [0m7.116 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.353 ms - -[0m
+[0mGET /products [36m304 [0m1.494 ms - -[0m
+[0mGET / [36m304 [0m10.790 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.367 ms - -[0m
+[0mGET /products [32m200 [0m1.557 ms - 2[0m
+[0mGET / [36m304 [0m6.841 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.340 ms - -[0m
+[0mGET /products [32m200 [0m1.481 ms - 2348[0m
+[0mGET /products/2 [32m200 [0m1.494 ms - 729[0m
+{"_id":"5a13241332250158c6aa0fe3","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"shan@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/2 [32m200 [0m505.619 ms - 15[0m
+[0mGET /products [32m200 [0m1.516 ms - 2340[0m
+[0mGET /products/2 [32m200 [0m1.489 ms - 721[0m
+{"_id":"5a13241332250158c6aa0fe3","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"PLT","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"shan@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/2 [32m200 [0m504.455 ms - 15[0m
+[0mGET /products [32m200 [0m1.658 ms - 2348[0m
+[0mGET / [36m304 [0m7.141 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.349 ms - -[0m
+[0mGET /products [32m200 [0m1.670 ms - 2[0m
+[0mGET / [36m304 [0m8.418 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.348 ms - -[0m
+[0mGET /products [32m200 [0m1.504 ms - 2356[0m
+[0mGET /products/4 [32m200 [0m1.468 ms - 731[0m
+{"_id":"5a1325c232250158c6aa0fea","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Justin@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/4 [32m200 [0m505.785 ms - 15[0m
+[0mGET /products [36m304 [0m1.575 ms - -[0m
+[0mGET /products/4 [32m200 [0m1.463 ms - 731[0m
+{"_id":"5a1325c232250158c6aa0fea","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Justin@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/4 [32m200 [0m504.752 ms - 15[0m
+[0mGET /products [32m200 [0m1.568 ms - 2348[0m
+[0mGET /products/4 [32m200 [0m3.321 ms - 723[0m
+{"_id":"5a1325c232250158c6aa0fea","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"PLT","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Justin@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/4 [32m200 [0m505.160 ms - 15[0m
+[0mGET /products [36m304 [0m1.546 ms - -[0m
+[0mGET /products/4 [32m200 [0m1.374 ms - 723[0m
+{"_id":"5a1325c232250158c6aa0fea","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"PLT","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Justin@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/4 [32m200 [0m505.055 ms - 15[0m
+[0mGET /products [32m200 [0m2.308 ms - 2356[0m
+[0mGET / [36m304 [0m3.964 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.364 ms - -[0m
+[0mGET /products [32m200 [0m1.561 ms - 2[0m
+[0mGET / [36m304 [0m4.321 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.321 ms - -[0m
+[0mGET /products [36m304 [0m1.593 ms - -[0m
+[0mGET / [36m304 [0m4.476 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.330 ms - -[0m
+[0mGET /products [32m200 [0m1.538 ms - 4533[0m
+[0mGET /products/3 [32m200 [0m3.292 ms - 729[0m
+{"_id":"5a13283532250158c6aa0fee","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Justin@Gmail.com","userCompany":"Gmail","__v":0}
+[0mPUT /products/3 [32m200 [0m505.320 ms - 15[0m
+[0mGET /products [32m200 [0m3.558 ms - 4525[0m
+[0mGET /products [32m200 [0m1.581 ms - 5072[0m
+[0mGET / [36m304 [0m4.696 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.360 ms - -[0m
+[0mGET /products [32m200 [0m1.630 ms - 7422[0m
+[0mGET /products/12 [32m200 [0m1.413 ms - 730[0m
+{"_id":"5a1329aa32250158c6aa0ff9","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"adi.miller@utexas.edu","userCompany":"","__v":0}
+[0mPUT /products/12 [32m200 [0m505.268 ms - 15[0m
+[0mGET /products [32m200 [0m1.773 ms - 7417[0m
+[0mGET / [36m304 [0m4.804 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.380 ms - -[0m
+[0mGET /products [36m304 [0m1.558 ms - -[0m
+[0mGET / [36m304 [0m4.438 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.322 ms - -[0m
+[0mGET /products [32m200 [0m1.668 ms - 9788[0m
+[0mGET /products/16 [32m200 [0m1.454 ms - 735[0m
+{"_id":"5a132a7b32250158c6aa0ffe","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"ngedelman@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/16 [32m200 [0m506.266 ms - 15[0m
+[0mGET /products [32m200 [0m1.782 ms - 9780[0m
+[0mGET /products [36m304 [0m2.415 ms - -[0m
+[0mGET / [36m304 [0m9.584 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.345 ms - -[0m
+[0mGET /products [32m200 [0m2.366 ms - 12127[0m
+[0mGET /products/20 [32m200 [0m1.388 ms - 729[0m
+{"_id":"5a132b8832250158c6aa1003","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"blank@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/20 [32m200 [0m504.845 ms - 15[0m
+[0mGET /products [32m200 [0m1.742 ms - 12119[0m
+[0mGET /products [36m304 [0m1.682 ms - -[0m
+[0mGET /products [32m200 [0m1.872 ms - 14494[0m
+[0mGET / [36m304 [0m4.812 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.342 ms - -[0m
+[0mGET /products [36m304 [0m1.879 ms - -[0m
+[0mGET / [36m304 [0m4.995 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.362 ms - -[0m
+[0mGET /products [32m200 [0m6.931 ms - 15117[0m
+[0mGET /products/24 [32m200 [0m1.339 ms - 736[0m
+{"_id":"5a132c2832250158c6aa1008","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"efuentes2312@yahoo.com","userCompany":"yahoo","__v":0}
+[0mPUT /products/24 [32m200 [0m505.805 ms - 15[0m
+[0mGET /products [32m200 [0m2.513 ms - 15109[0m
+[0mGET /products [36m304 [0m1.724 ms - -[0m
+[0mGET / [36m304 [0m4.749 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.347 ms - -[0m
+[0mGET /products [32m200 [0m1.572 ms - 2[0m
+[0mGET / [36m304 [0m12.556 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.367 ms - -[0m
+[0mGET /products [36m304 [0m1.558 ms - -[0m
+[0mGET / [36m304 [0m4.290 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.331 ms - -[0m
+[0mGET /products [32m200 [0m1.388 ms - 2348[0m
+[0mGET /products/4 [32m200 [0m5.947 ms - 729[0m
+{"_id":"5a132e7b32250158c6aa100e","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"gerald@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/4 [32m200 [0m504.189 ms - 15[0m
+[0mGET /products [32m200 [0m1.502 ms - 2340[0m
+[0mGET /products [36m304 [0m1.407 ms - -[0m
+[0mGET /products [36m304 [0m1.382 ms - -[0m
+[0mGET / [36m304 [0m4.623 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.330 ms - -[0m
+[0mGET /products [32m200 [0m1.496 ms - 4549[0m
+[0mGET /products/7 [32m200 [0m1.240 ms - 619[0m
+{"_id":"5a132f3e32250158c6aa1012","vendorId":1151,"productId":295,"path":"\\\\?\\hid#vid_047f&pid_0127&col01#6&34dda44b&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col02#6&34dda44b&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col03#6&34dda44b&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"bebd4221027e6e438947a76467a93cd1","manufacturer":"Plantronics","product":"Plantronics Voyager Focus UC","release":260,"interface":-1,"usagePage":"65440, 65442, 12","usage":"1, 1, 1","userId":"richardson.joshua@utexas.edu","userCompany":"","__v":0}
+[0mPUT /products/7 [32m200 [0m506.533 ms - 15[0m
+[0mGET /products [32m200 [0m1.623 ms - 6909[0m
+[0mGET / [36m304 [0m4.671 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.365 ms - -[0m
+[0mGET /products [36m304 [0m1.504 ms - -[0m
+[0mGET /products/11 [32m200 [0m1.505 ms - 734[0m
+{"_id":"5a132f6a32250158c6aa1017","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"jaimefer.campos@gmail.com","userCompany":"","__v":0}
+[0mPUT /products/11 [32m200 [0m504.014 ms - 15[0m
+[0mGET /products [32m200 [0m2.410 ms - 6904[0m
+[0mGET /products/11 [32m200 [0m1.296 ms - 729[0m
+{"_id":"5a132f6a32250158c6aa1017","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"PLT","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"jaimefer.campos@gmail.com","userCompany":"PLT","__v":0}
+[0mPUT /products/11 [32m200 [0m505.064 ms - 15[0m
+[0mGET /products [32m200 [0m1.673 ms - 9082[0m
+[0mGET / [36m304 [0m4.668 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.284 ms - -[0m
+[0mGET /products [32m200 [0m1.524 ms - 2[0m
+[0mGET /products [32m200 [0m4.114 ms - 2168[0m
+[0mGET / [36m304 [0m4.549 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.339 ms - -[0m
+[0mGET /products [32m200 [0m1.513 ms - 4511[0m
+[0mGET /products/6 [32m200 [0m1.353 ms - 728[0m
+{"_id":"5a1330e332250158c6aa1022","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"youss@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/6 [32m200 [0m505.774 ms - 15[0m
+[0mGET /products [32m200 [0m1.521 ms - 4503[0m
+[0mGET /products [36m304 [0m1.471 ms - -[0m
+[0mGET / [36m304 [0m4.919 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.345 ms - -[0m
+[0mGET /products [32m200 [0m1.488 ms - 7281[0m
+[0mGET /products/9 [32m200 [0m3.233 ms - 603[0m
+[0mGET /products [36m304 [0m1.481 ms - -[0m
+[0mGET /products/9 [36m304 [0m1.400 ms - -[0m
+{"_id":"5a1331a732250158c6aa1026","vendorId":1151,"productId":295,"path":"\\\\?\\hid#vid_047f&pid_0127&col01#6&34dda44b&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col02#6&34dda44b&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col03#6&34dda44b&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"bebd4221027e6e438947a76467a93cd1","manufacturer":"Plantronics","product":"Plantronics Voyager Focus UC","release":260,"interface":-1,"usagePage":"65440, 65442, 12","usage":"1, 1, 1","userId":"david@h.com","userCompany":"h","__v":0}
+[0mPUT /products/9 [32m200 [0m505.633 ms - 15[0m
+[0mGET /products [32m200 [0m1.620 ms - 7273[0m
+[0mGET /products [36m304 [0m1.512 ms - -[0m
+[0mGET / [36m304 [0m4.760 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.333 ms - -[0m
+[0mGET /products [32m200 [0m7.703 ms - 9620[0m
+[0mGET /products/15 [32m200 [0m1.379 ms - 729[0m
+{"_id":"5a1332a432250158c6aa102d","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"mfb@utexas.edu","userCompany":"utexas","__v":0}
+[0mPUT /products/15 [32m200 [0m505.513 ms - 15[0m
+[0mGET /products [32m200 [0m3.480 ms - 9612[0m
+[0mGET /products [36m304 [0m1.543 ms - -[0m
+[0mGET / [36m304 [0m4.472 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.324 ms - -[0m
+[0mGET /products [36m304 [0m1.536 ms - -[0m
+[0mGET / [36m304 [0m4.053 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.320 ms - -[0m
+[0mGET /products [32m200 [0m1.653 ms - 11955[0m
+[0mGET /products/19 [32m200 [0m1.357 ms - 728[0m
+{"_id":"5a13339532250158c6aa1032","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"woot@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/19 [32m200 [0m505.040 ms - 15[0m
+[0mGET /products [32m200 [0m1.601 ms - 11947[0m
+[0mGET /products [36m304 [0m1.559 ms - -[0m
+[0mGET / [36m304 [0m4.907 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.326 ms - -[0m
+[0mGET /products [36m304 [0m2.031 ms - -[0m
+[0mGET / [36m304 [0m6.193 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.318 ms - -[0m
+[0mGET /products [32m200 [0m1.713 ms - 14330[0m
+[0mGET /products/22 [32m200 [0m1.270 ms - 738[0m
+{"_id":"5a13351332250158c6aa1036","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"scottfehr@austin.rr.com","userCompany":"austin","__v":0}
+[0mPUT /products/22 [32m200 [0m504.548 ms - 15[0m
+[0mGET /products [32m200 [0m6.545 ms - 16522[0m
+[0mGET /products [36m304 [0m1.697 ms - -[0m
+[0mGET /products [32m200 [0m1.773 ms - 18913[0m
+[0mGET /products [32m200 [0m1.696 ms - 19540[0m
+[0mGET /products/28 [32m200 [0m1.277 ms - 740[0m
+{"_id":"5a13362f32250158c6aa103e","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"charles.cameron@plantronics.con","userCompany":"","__v":0}
+[0mPUT /products/28 [32m200 [0m504.685 ms - 15[0m
+[0mGET /products [32m200 [0m2.554 ms - 19543[0m
+[0mGET /products [32m200 [0m7.476 ms - 21830[0m
+[0mGET /products/34 [32m200 [0m1.351 ms - 730[0m
+{"_id":"5a13384932250158c6aa1045","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Justin@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/34 [32m200 [0m503.994 ms - 15[0m
+[0mGET /products [32m200 [0m1.914 ms - 22503[0m
+[0mGET /products [36m304 [0m2.007 ms - -[0m
+[0mGET / [36m304 [0m4.772 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.315 ms - -[0m
+[0mGET /products [32m200 [0m2.451 ms - 24850[0m
+[0mGET /products/40 [32m200 [0m1.390 ms - 729[0m
+{"_id":"5a133ab332250158c6aa104c","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"david@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/40 [32m200 [0m504.212 ms - 15[0m
+[0mGET /products [32m200 [0m2.537 ms - 24842[0m
+[0mGET /products [36m304 [0m6.904 ms - -[0m
+[0mGET /products [32m200 [0m2.012 ms - 27213[0m
+[0mGET /products/44 [32m200 [0m1.453 ms - 735[0m
+{"_id":"5a133c6332250158c6aa1051","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"justinrubio@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/44 [32m200 [0m504.264 ms - 15[0m
+[0mGET /products [32m200 [0m2.891 ms - 27827[0m
+[0mGET /products [36m304 [0m2.073 ms - -[0m
+[0mGET /products [32m200 [0m2.216 ms - 30012[0m
+[0mGET /products [36m304 [0m2.242 ms - -[0m
+[0mGET /products/46 [32m200 [0m1.397 ms - 611[0m
+{"_id":"5a133d5d32250158c6aa1054","vendorId":1151,"productId":295,"path":"\\\\?\\hid#vid_047f&pid_0127&col01#6&34dda44b&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col02#6&34dda44b&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col03#6&34dda44b&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"bebd4221027e6e438947a76467a93cd1","manufacturer":"Plantronics","product":"Plantronics Voyager Focus UC","release":260,"interface":-1,"usagePage":"65440, 65442, 12","usage":"1, 1, 1","userId":"Test@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/46 [32m200 [0m504.476 ms - 15[0m
+[0mGET /products [32m200 [0m3.027 ms - 30004[0m
+[0mGET / [36m304 [0m3.740 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.296 ms - -[0m
+[0mGET /products [32m200 [0m1.969 ms - 2[0m
+[0mGET / [36m304 [0m6.770 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.296 ms - -[0m
+[0mGET /products [32m200 [0m1.444 ms - 2324[0m
+[0mGET /products/4 [32m200 [0m2.583 ms - 739[0m
+{"_id":"5a133e8132250158c6aa105b","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"racheltedesco143@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/4 [32m200 [0m504.827 ms - 15[0m
+[0mGET /products [32m200 [0m1.513 ms - 2316[0m
+[0mGET /products [36m304 [0m1.400 ms - -[0m
+[0mGET / [36m304 [0m4.595 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.335 ms - -[0m
+[0mGET /products [32m200 [0m1.492 ms - 4619[0m
+[0mGET / [36m304 [0m18.524 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.308 ms - -[0m
+[0mGET /products [36m304 [0m1.419 ms - -[0m
+[0mGET /products/8 [32m200 [0m1.370 ms - 734[0m
+{"_id":"5a133f7432250158c6aa1060","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"spenchan000@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/8 [32m200 [0m503.545 ms - 15[0m
+[0mGET /products [32m200 [0m1.436 ms - 5296[0m
+[0mGET /products [32m200 [0m2.948 ms - 7481[0m
+[0mGET / [36m304 [0m4.452 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.284 ms - -[0m
+[0mGET /products [36m304 [0m1.512 ms - -[0m
+[0mGET / [36m304 [0m8.811 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.304 ms - -[0m
+[0mGET /products [36m304 [0m1.518 ms - -[0m
+[0mGET / [36m304 [0m3.990 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.289 ms - -[0m
+[0mGET /products [32m200 [0m1.665 ms - 9836[0m
+[0mGET /products/16 [32m200 [0m1.327 ms - 731[0m
+{"_id":"5a1340ca32250158c6aa106a","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"JustinR@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/16 [32m200 [0m504.012 ms - 15[0m
+[0mGET /products [32m200 [0m1.620 ms - 9828[0m
+[0mGET /products [36m304 [0m3.038 ms - -[0m
+[0mGET / [36m304 [0m4.268 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.303 ms - -[0m
+[0mGET /products [32m200 [0m1.569 ms - 2[0m
+[0mGET / [36m304 [0m4.036 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.265 ms - -[0m
+[0mGET /products [32m200 [0m1.527 ms - 3537[0m
+[0mGET /products/4 [32m200 [0m1.303 ms - 731[0m
+{"_id":"5a13422232250158c6aa106f","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"JustinR9@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/4 [32m200 [0m503.779 ms - 15[0m
+[0mGET /products [32m200 [0m1.495 ms - 3529[0m
+[0mGET /products [36m304 [0m1.383 ms - -[0m
+[0mGET /products [32m200 [0m1.466 ms - 5720[0m
+[0mGET / [36m304 [0m3.575 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.317 ms - -[0m
+[0mGET /products [32m200 [0m1.585 ms - 8688[0m
+[0mGET /products/9 [32m200 [0m1.283 ms - 461[0m
+{"_id":"5a13437332250158c6aa1075","vendorId":48879,"productId":65261,"path":"\\\\?\\hid#lenovovhid#1&632d18&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"UMDF Virtual hidmini device Serial Number string","manufacturer":"UMDF Virtual hidmini device Manufacturer string","product":"UMDF Virtual hidmini device Product string","release":257,"interface":-1,"usagePage":"1","usage":"12","userId":"someguy@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/9 [32m200 [0m504.762 ms - 15[0m
+[0mGET /products [32m200 [0m1.634 ms - 8649[0m
+[0mGET /products [36m304 [0m1.545 ms - -[0m
+[0mGET /products/13 [32m200 [0m1.416 ms - 730[0m
+{"_id":"5a1343af32250158c6aa107a","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"JRubio@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/13 [32m200 [0m504.794 ms - 15[0m
+[0mGET /products [32m200 [0m1.599 ms - 8641[0m
+[0mGET /products [32m200 [0m1.587 ms - 11624[0m
+[0mGET /products/18 [32m200 [0m1.389 ms - 733[0m
+{"_id":"5a13452532250158c6aa1080","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Jrubio912@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/18 [32m200 [0m503.902 ms - 15[0m
+[0mGET /products [32m200 [0m2.522 ms - 11616[0m
+[0mGET /products [36m304 [0m1.601 ms - -[0m
+[0mGET / [36m304 [0m3.699 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.327 ms - -[0m
+[0mGET /products [32m200 [0m1.810 ms - 13963[0m
+[0mGET / [36m304 [0m4.697 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.254 ms - -[0m
+[0mGET /products [36m304 [0m1.626 ms - -[0m
+[0mGET /products/23 [32m200 [0m1.346 ms - 729[0m
+{"_id":"5a13467332250158c6aa1086","vendorId":1151,"productId":44033,"path":"\\\\?\\hid#vid_047f&pid_ac01&mi_03&col01#7&3063f340&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col02#7&3063f340&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col03#7&3063f340&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_ac01&mi_03&col04#7&3063f340&0&0003#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"70DC470564594E7F84626FFE81422D80","manufacturer":"Plantronics","product":"Plantronics Savi 7xx","release":377,"interface":3,"usagePage":"12, 11, 65440, 65368","usage":"1, 5, 1, 1","userId":"Rubio@gmail.com","userCompany":"gmail","__v":0}
+[0mPUT /products/23 [32m200 [0m505.324 ms - 15[0m
+[0mGET /products [32m200 [0m8.702 ms - 14571[0m
+[0mGET /products [36m304 [0m1.581 ms - -[0m
+[0mGET / [32m200 [0m4.369 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m0.583 ms - 1288[0m
+[0mGET / [36m304 [0m4.054 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.318 ms - -[0m
+[0mGET /products [32m200 [0m1.705 ms - 16150[0m
+[0mGET /favicon.ico [33m404 [0m0.652 ms - 1288[0m
+[0mGET / [36m304 [0m17.352 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.770 ms - -[0m
+[0mGET /products [32m200 [0m2.801 ms - 17715[0m
+[0mGET / [32m200 [0m9.392 ms - 569[0m
+[0mGET / [32m200 [0m4.139 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m1.933 ms - 1288[0m
+[0mGET / [32m200 [0m9.033 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m1.573 ms - 1288[0m
+[0mGET / [32m200 [0m32.383 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m0.750 ms - 1288[0m
+[0mGET / [32m200 [0m24.593 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m7.220 ms - 1288[0m
+[0mGET / [32m200 [0m20.707 ms - 569[0m
+[0mGET / [32m200 [0m5.572 ms - 569[0m
+[0mGET / [32m200 [0m6.721 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m2.547 ms - 1288[0m
+[0mGET / [32m200 [0m3.953 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m0.579 ms - 1288[0m
+[0mGET / [32m200 [0m3.921 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m0.556 ms - 1288[0m
+[0mGET / [32m200 [0m11.153 ms - 569[0m
+[0mGET / [32m200 [0m6.055 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m0.574 ms - 1288[0m
+[0mGET / [32m200 [0m3.896 ms - 569[0m
+[0mGET / [36m304 [0m3.969 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.811 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m0.642 ms - 1288[0m
+[0mGET / [32m200 [0m3.699 ms - 569[0m
+[0mGET /javascripts/bundle.js [32m200 [0m1.262 ms - 319617[0m
+[0mGET /favicon.ico [33m404 [0m0.602 ms - 1288[0m
+[0mGET /products [32m200 [0m14.129 ms - 18715[0m
+[0mGET / [36m304 [0m3.912 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.373 ms - -[0m
+[0mGET /products [36m304 [0m1.668 ms - -[0m
+[0mGET / [36m304 [0m3.770 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.293 ms - -[0m
+[0mGET /products [32m200 [0m1.940 ms - 22118[0m
+[0mGET /products/36 [32m200 [0m3.564 ms - 600[0m
+{"_id":"5a1f481232250158c6aa1097","vendorId":1151,"productId":295,"path":"\\\\?\\hid#vid_047f&pid_0127&col01#7&23201862&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col02#7&23201862&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}, \\\\?\\hid#vid_047f&pid_0127&col03#7&23201862&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}","serialNumber":"86402a224477bc41b2fa803495ebafb5","manufacturer":"Plantronics","product":"Plantronics Voyager Focus UC","release":260,"interface":-1,"usagePage":"65440, 65442, 12","usage":"1, 1, 1","userId":"s@k.com","userCompany":"k","__v":0}
+[0mPUT /products/36 [32m200 [0m516.006 ms - 15[0m
+[0mGET /products [32m200 [0m2.584 ms - 22110[0m
+[0mPOST /ivr/VAD_Deploy.aspx?projectname=ab_ab [33m404 [0m280.009 ms - 1288[0m
+[0mGET / [36m304 [0m7.866 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m0.835 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m1.886 ms - 1288[0m
+[0mGET / [32m200 [0m3.371 ms - 569[0m
+[0mGET / [32m200 [0m50.766 ms - 569[0m
+[0mGET /manager/html [33m404 [0m2.923 ms - 1288[0m
+[0mGET / [36m304 [0m9.419 ms - -[0m
+[0mGET /javascripts/bundle.js [36m304 [0m2.823 ms - -[0m
+[0mGET /products [36m304 [0m9.918 ms - -[0m
+[0mGET /products/11 [32m200 [0m3.473 ms - 680[0m
+[0mGET / [32m200 [0m3.817 ms - 569[0m
+[0mGET / [32m200 [0m10.249 ms - 569[0m
+[0mGET /favicon.ico [33m404 [0m1.108 ms - 1288[0m
+[0mGET / [32m200 [0m28.255 ms - 569[0m
+[0mGET /javascripts/bundle.js [32m200 [0m4.143 ms - 319617[0m
+[0mGET / [32m200 [0m5.032 ms - 569[0m
