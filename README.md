@@ -1,13 +1,14 @@
 # Plantronics Device Hub: Setup Instructions
 
-##Client Application:
+## Client Application:
+
 (write instructions for Client application here. Include installing Electron, changing the public DNS address of the server in the application, then rebuilding the executable.)
 1. Install Electron by....
 2. Go through the code in Client/Software and change all instances of ```ec2-18-221-169-223.us-east-2.compute.amazonaws.com``` to the public DNS address of your server.
 3. Generate an executable by...
 4. Launch the program by...
 
-##Server Application:
+## Server Application:
 1. Secure an online server. We used an Amazon Web Services virtual machine running Ubuntu 16.04 Server.
 2. On your virtual machine, install MySQL, MongoDB, npm, nodejs, and nodemon.
 3. Set up a MySQL database named "devicehub" with a table named "hub". Create a MySQL user and a password, and grant the user full permissions over "devicehub". 
